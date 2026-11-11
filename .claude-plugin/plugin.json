@@ -1,0 +1,19 @@
+{
+  "name": "claude-skill-for-video",
+  "version": "1.1.0",
+  "description": "Seven Claude Code skills that make animations for reels, no footage needed: cartoon-3d, stick-figure, pixel-world, minimalistic-graphics, map-route, breakdown and graph. Rendered on your computer with HyperFrames, three.js and Playwright.",
+  "author": {
+    "name": "Alexander Valentino Lukman",
+    "url": "https://github.com/alexlukman"
+  },
+  "repository": "https://github.com/alexlukman/claude-skill-for-video",
+  "license": "MIT",
+  "keywords": [
+    "animation",
+    "reels",
+    "motion-graphics",
+    "three.js",
+    "hyperframes",
+    "pixel-art"
+  ]
+}

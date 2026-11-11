@@ -1,0 +1,15 @@
+{
+  "name": "claude-skill-for-video",
+  "owner": {
+    "name": "Alexander Valentino Lukman",
+    "url": "https://github.com/alexlukman"
+  },
+  "description": "Alex's animation skills for Claude Code.",
+  "plugins": [
+    {
+      "name": "video-skills",
+      "source": "./",
+      "description": "Seven skills that make animations for reels with no footage: a 3D cartoon explainer, a stick-figure explainer, a 2D pixel-world explainer, minimal black-and-white line art, a 3D map route, a 3D exploded view that turns around the object, and a minimal line graph."
+    }
+  ]
+}
