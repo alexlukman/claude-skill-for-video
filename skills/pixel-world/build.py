@@ -79,6 +79,8 @@ def main():
     subprocess.run(render + ['video', str(out)], check=True)
     sheet = out.with_suffix('.sheet.jpg')
     anim.sheet(out, sheet, 6)
+    import resize
+    resize.from_spec(spec, out)
     print(f'done: {out}\ncheck: {sheet}')
 
 

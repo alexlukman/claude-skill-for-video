@@ -34,6 +34,9 @@ def build(skill_dir, defaults, check=None):
     spec = merge(defaults, json.loads(spec_path.read_text()))
     if check:
         check(spec)
+    if spec.get('size'):
+        import resize
+        resize.parse_size(spec['size'])
     for tool in ('node', 'ffmpeg'):
         if not shutil.which(tool):
             sys.exit(f'{tool} is missing. Mac: brew install ffmpeg node')
@@ -63,4 +66,6 @@ def build(skill_dir, defaults, check=None):
     subprocess.run(render + ['video', str(out)], check=True)
     sheet = out.with_suffix('.sheet.jpg')
     anim.sheet(out, sheet, 6)
+    import resize
+    resize.from_spec(spec, out)
     print(f'done: {out}\ncheck: {sheet}')

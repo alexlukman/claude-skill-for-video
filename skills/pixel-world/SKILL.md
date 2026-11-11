@@ -97,6 +97,14 @@ Effects that bring their own fighter (the `moves/` set and some melee, projectil
 - A scene's `caption` is one or two lowercase words.
 A finished example is in `examples/demo.pixel.json`.
 
+
+## Other screen sizes
+Every skill renders 9:16 and can then fit the video into any frame. Add to the spec:
+- **`size`**: `"16:9"`, `"1:1"`, `"4:5"`, `"4:3"`, `"21:9"` or any `"WIDTHxHEIGHT"` such as `"1920x1080"`.
+- **`fill`** (optional): `"blur"` (default, a blurred copy of the video fills the sides) or a colour like `"#101010"`.
+- **`zoom`** (optional, default 1): above 1 enlarges the picture and crops the quiet top and bottom margins; up to about 1.25 is safe in landscape. Check that nothing important at the very top or bottom is cut.
+The contact sheet is made from the 9:16 render. For a video you already have: `python3 "$KIT/resize.py" <video.mp4> --size 1920x1080 [--fill blur] [--zoom 1.2]`.
+
 ## Taste
 - Big heads, few colours per character, strong outline. Let the pixels be chunky.
 - One idea per scene, a bubble per beat, and a pixel transition only on the big turn.

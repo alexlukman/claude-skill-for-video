@@ -37,6 +37,9 @@ bash install.sh
 ## How the new skills work
 The 2D scene skills share `kit/scene2d/`: a canvas page, helpers (`lib.js`), a Playwright renderer and a builder. Each skill is a `scene.js` with a `renderAt(t)` that depends only on time, a `build.py` with defaults and checks, and a `SKILL.md`. Every one renders 1080x1920, 30 fps, 6 s, H.264 yuv420p, and `build.py <spec> --check` writes stills at 0, 1, 3, 5 and 5.9 s and warns about text that does not fit. Any of them can also take `"filter": "ascii" | "thermal" | "crt"` to post-process every frame.
 
+## Other screen sizes
+Everything renders as 9:16 first. Add `"size": "1920x1080"` (or `"16:9"`, `"1:1"`, `"4:5"`, any WIDTHxHEIGHT) to a spec to fit the video into that frame, with the sides filled by a blurred copy (`"fill": "blur"`) or a colour, and an optional `"zoom"` to enlarge it. For any finished video: `python3 kit/resize.py video.mp4 --size 16:9`.
+
 ## What changed from the original
 This project started from [claude-animation-skills](https://github.com/artemnovitckii/claude-animation-skills) by Artem Novitckii (MIT). Changes:
 - **`/cartoon-3d`** (was `/zach-d-films`): the faces no longer wobble. The head is one smooth surface, features are placed on it by ray-casting, the jaw stays still and the mouth only opens and closes.

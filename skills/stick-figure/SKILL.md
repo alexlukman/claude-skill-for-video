@@ -55,3 +55,7 @@ A reel is one folder:
 - Captions: Poppins Bold, white with a dark outline, 1 to 2 words, lowercase, no punctuation (`capText()` in `main.js` does it; digits and `%` stay). No em dashes anywhere on screen.
 - Bright saturated palette, ink outlines (`#221c22`), soft contact shadows, slow push-ins with handheld drift, whip transitions with motion blur. An impact is a burst, a shake and a flash.
 - SFX sit under the voice (gain about 0.38). The music is a quiet plucked underscore, ducked under the voice, never a loud loop at the start.
+
+## Other screen sizes
+This skill renders 9:16. For another frame, fit the finished video afterwards:
+`python3 "$KIT/resize.py" <name>.mp4 --size 1920x1080 [--fill blur|#101010] [--zoom 1.2]` (presets `16:9`, `1:1`, `4:5`, `4:3`, `21:9`, or any WIDTHxHEIGHT). The sides are filled with a blurred copy of the video, or a colour; `zoom` above 1 enlarges the picture and crops the quiet top and bottom margins (up to about 1.25 in landscape).

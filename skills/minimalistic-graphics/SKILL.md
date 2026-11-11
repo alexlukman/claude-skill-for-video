@@ -41,6 +41,14 @@ Needs ffmpeg and Node.
 - **`light`**: black lines on white.
 - **`hold`** (optional): extra seconds at the end. **`out`** (optional): the output path.
 
+
+## Other screen sizes
+Every skill renders 9:16 and can then fit the video into any frame. Add to the spec:
+- **`size`**: `"16:9"`, `"1:1"`, `"4:5"`, `"4:3"`, `"21:9"` or any `"WIDTHxHEIGHT"` such as `"1920x1080"`.
+- **`fill`** (optional): `"blur"` (default, a blurred copy of the video fills the sides) or a colour like `"#101010"`.
+- **`zoom`** (optional, default 1): above 1 enlarges the picture and crops the quiet top and bottom margins; up to about 1.25 is safe in landscape. Check that nothing important at the very top or bottom is cut.
+The contact sheet is made from the 9:16 render. For a video you already have: `python3 "$KIT/resize.py" <video.mp4> --size 1920x1080 [--fill blur] [--zoom 1.2]`.
+
 ## Taste
 - Quiet and plain. Lowercase, no emojis, no bold, no exclamation marks.
 - The idea should be about steady progress (habits, compounding, patience), because the picture is a dot climbing steps.

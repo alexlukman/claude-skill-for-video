@@ -70,3 +70,7 @@ People stay readable when the face does not wobble. Keep `setMouth(v)` values st
 - Bright blue studio sky, soft daylight, metal that reads as metal. Cartoon people are simple shapes with big expressive faces; keep them in proportion with the props.
 - Slow motion on the impact, a short camera shake, sparks, bloom on hot things. The red ripple shows force spreading.
 - Quick cuts on caption beats; one dip to black on the "But" turn. Captions are white, bold, 1 to 3 words.
+
+## Other screen sizes
+This skill renders 9:16. For another frame, fit the finished video afterwards:
+`python3 "$KIT/resize.py" <name>.mp4 --size 1920x1080 [--fill blur|#101010] [--zoom 1.2]` (presets `16:9`, `1:1`, `4:5`, `4:3`, `21:9`, or any WIDTHxHEIGHT). The sides are filled with a blurred copy of the video, or a colour; `zoom` above 1 enlarges the picture and crops the quiet top and bottom margins (up to about 1.25 in landscape).

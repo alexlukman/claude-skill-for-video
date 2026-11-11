@@ -53,7 +53,7 @@ def load_spec(path, defaults):
     spec = json.loads(Path(path).read_text())
     for k, v in defaults.items():
         spec.setdefault(k, v)
-    unknown = sorted(set(spec) - set(defaults) - {'out', 'hold', 'template'})
+    unknown = sorted(set(spec) - set(defaults) - {'out', 'hold', 'template', 'size', 'fill', 'zoom'})
     if unknown:
         print(f'note: ignoring unknown spec fields: {", ".join(unknown)}')
     return spec
@@ -130,6 +130,9 @@ def build(template, defaults, duration=lambda spec: 4.0, three=False, check=None
         snap = [float(x) for x in args[args.index('--snap') + 1].split(',')]
     check_setup(three)
     spec = load_spec(spec_path, defaults)
+    if spec.get('size'):
+        import resize
+        resize.parse_size(spec['size'])
     if check:
         check(spec)
     dur = duration(spec) + float(spec.get('hold', 0))
@@ -146,6 +149,8 @@ def build(template, defaults, duration=lambda spec: 4.0, three=False, check=None
     render(work, out)
     sh = out.with_suffix('.sheet.jpg')
     sheet(out, sh)
+    import resize
+    resize.from_spec(spec, out)
     print(f'done: {out}\nsheet: {sh}')
 
 
