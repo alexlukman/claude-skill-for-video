@@ -68,6 +68,31 @@ When the user sends a picture or describes a character, translate it into the ch
 - **`cam`**: `x` is the camera position, `to` moves it during the scene, `follow` keeps an actor in frame.
 - **`actors`**: `x` start, `to` end, `move` `[start, end]` seconds of the walk, `face` is 1 or -1, `do` is `idle`, `walk`, `run`, `wave`, `dance`, `jump` or `hit`, `at` is when the action starts.
 - **`say`**: speech bubbles, `who`, `text`, `at`, optional `until`.
+- **`fx`**: pixel effects (from pixelfx, 171 of them). Each is `{ "type": "fire/campfire", "x": 120, "at": 0.5 }`: `x` is a world position like props, `y` lifts it (negative is up), `at` is when it starts in the scene, `until` hides it after that, `"front": true` draws it over the actors, and `palette` (a dark-to-bright list of hex colours) recolours it. One-shots (explosions, hits) play once; loops (fire, rain, fireflies) keep going.
+
+### Effects
+Good first picks: `fire/campfire`, `fire/torch`, `explosions/cartoon-pow`, `explosions/big-explosion`, `impacts/hit-spark`, `lightning/zap-hit`, `pickups/coin-spin`, `ui/confetti`, `ui/level-up`, `spawn/poof`, `weather/rain`, `weather/snow`, `arcane/portal`, `water/splash`. Put a hit effect at the same `at` as an actor's `"do": "hit"`.
+
+- **fire**: brazier, campfire, candle, fire-breath, fire-tornado, fireball, flame-pillar, flamethrower, meteor, spirit-flame, torch
+- **explosions**: barrel-explosion, big-explosion, cartoon-pow, dirt-explosion, firework-burst, firework-rocket, grenade, implosion, nuke, plasma-explosion, small-explosion, smoke-bomb
+- **water**: bubbles, drip, fountain, geyser, rain-splash, ripples, splash, water-jet, water-orb, waterfall, wave-crash, whirlpool
+- **ice**: blizzard-vortex, frost-breath, ice-crystal, ice-lance, ice-shatter, ice-spikes, icicle-fall, snowflake-burst
+- **lightning**: ball-lightning, lightning-strike, plasma-ball, spark-arc, storm-cloud, tesla-coil, zap-hit
+- **scifi**: emp-blast, energy-core, hologram, jetpack, laser-grid, teleporter-pad, tractor-beam
+- **impacts**: blunt-hit, bullet-impact, crit-hit, ground-slam, hit-spark, impact-frame, parry, ricochet
+- **projectiles**: arrow, bullet-tracer, cannonball, energy-disc, flare, homing-missile, laser-bolt, magic-missile, muzzle-pistol, muzzle-shotgun, muzzle-smg, plasma-shot, rocket
+- **spawn**: coin-drop, egg-hatch, poof, spawn-portal, summon-rise
+- **arcane**: arcane-orb, magic-circle-cast, mana-burst, portal, rune-circle, star-fall, time-stop
+- **holy**: feather-burst, heal-aoe, holy-pillar, smite, sunburst
+- **shadow**: black-hole, dark-explosion, eclipse, grasping-hands, hex-sigil, necro-skulls, shadow-flames, shadow-tendrils, soul-drain, void-orb
+- **nature**: acid-splash, boulder, earth-spike, healing-bloom, poison-cloud, quake, spore-burst, thorns, tornado, toxic-puddle, vine-whip
+- **weather**: aurora, blizzard, cherry-blossoms, clouds, falling-leaves, fireflies, fog, god-rays, rain, shooting-stars, snow, storm
+- **ui**: achievement, coin-collect, combo-counter, confetti, countdown, crit-number, damage-number, health-bar-hit, heart-lost, quest-complete
+- **pickups**: chest-open, coin-spin, collect-burst, crystal-shard, gem-spin, heart-pickup, key-glint, loot-beam, potion, power-star, xp-orb
+- **transitions**: blinds, burn-away, crt-off, diamond-wipe, glitch-wipe, iris, pixel-dissolve, shatter-wipe, slash-wipe, star-iris
+- **critters**: bat, bird, butterfly, eyeball, fish-school, flying-skull, frog, ghost, jellyfish, slime, snake, wisp
+
+Effects that bring their own fighter (the `moves/` set and some melee, projectile and impact effects) are left out because the cast plays the characters. Some weather effects (`fog`, `fireflies`, `god-rays`, `aurora`) tint a band of the sky; check a still.
 - **`transition`**: `"pixel"` dissolves into the next scene in blocks.
 - A scene's `caption` is one or two lowercase words.
 A finished example is in `examples/demo.pixel.json`.

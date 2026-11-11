@@ -34,6 +34,12 @@ def check(spec):
             sys.exit(f'spec: scene {i} needs a "dur" in seconds')
         if sc.get('scale', 6) not in SCALES:
             sys.exit(f'spec: scene {i} "scale" must be one of {SCALES}')
+        fxok = set(json.loads((HERE / 'engine' / 'fx-list.json').read_text()))
+        for f in sc.get('fx', []):
+            if f.get('type') not in fxok:
+                sys.exit(f'spec: scene {i} fx "{f.get("type")}" is not a known effect (see engine/fx-list.json)')
+            if not isinstance(f.get('x'), (int, float)):
+                sys.exit(f'spec: scene {i} fx "{f["type"]}" needs an "x" (world position)')
         for who in sc.get('actors', {}):
             if who not in spec['cast']:
                 sys.exit(f'spec: scene {i} uses "{who}" who is not in "cast"')

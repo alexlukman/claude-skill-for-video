@@ -1,20 +1,166 @@
 {
-  "world": { "sky": "day", "ground": 0.68,
-    "props": [
-      { "type": "tree", "x": 20 }, { "type": "bush", "x": 62 }, { "type": "house", "x": 250 },
-      { "type": "sign", "x": 150, "text": "HELLO" }, { "type": "flower", "x": 100, "color": "#ff5a7a" }, { "type": "flower", "x": 108, "color": "#ffd23f" },
-      { "type": "crate", "x": 205 }, { "type": "fence", "x": 300, "n": 3 }, { "type": "tree", "x": 350 }
-    ] },
-  "cast": { "mika": "mika", "prof": "prof", "agent": "agent" },
-  "scenes": [
-    { "dur": 3.2, "scale": 8, "caption": "what if", "cam": { "x": 90 },
-      "actors": { "mika": { "x": 60, "to": 105, "move": [0.2, 2.2] }, "prof": { "x": 150, "face": -1 } },
-      "say": [ { "who": "mika", "text": "Hi professor!", "at": 0.3, "until": 2.4 } ] },
-    { "dur": 3.4, "scale": 8, "caption": "could a hat", "cam": { "x": 120, "to": 130 },
-      "actors": { "mika": { "do": "wave" }, "prof": { "do": "idle" } },
-      "say": [ { "who": "prof", "text": "Today we study pixels.", "at": 0.3, "until": 3.2 } ] },
-    { "dur": 3.0, "scale": 10, "transition": "pixel", "caption": "boom", "cam": { "x": 150 },
-      "actors": { "mika": { "x": 120, "do": "jump", "at": 0.4 }, "prof": { "x": 165, "face": -1 }, "agent": { "x": 205, "to": 175, "move": [0, 1.4], "face": -1 } },
-      "say": [ { "who": "agent", "text": "Move along.", "at": 1.5 } ] }
+ "world": {
+  "sky": "day",
+  "ground": 0.68,
+  "props": [
+   {
+    "type": "tree",
+    "x": 20
+   },
+   {
+    "type": "bush",
+    "x": 62
+   },
+   {
+    "type": "house",
+    "x": 250
+   },
+   {
+    "type": "sign",
+    "x": 150,
+    "text": "HELLO"
+   },
+   {
+    "type": "flower",
+    "x": 100,
+    "color": "#ff5a7a"
+   },
+   {
+    "type": "flower",
+    "x": 108,
+    "color": "#ffd23f"
+   },
+   {
+    "type": "crate",
+    "x": 205
+   },
+   {
+    "type": "fence",
+    "x": 300,
+    "n": 3
+   },
+   {
+    "type": "tree",
+    "x": 350
+   }
   ]
+ },
+ "cast": {
+  "mika": "mika",
+  "prof": "prof",
+  "agent": "agent"
+ },
+ "scenes": [
+  {
+   "dur": 3.2,
+   "scale": 8,
+   "caption": "what if",
+   "cam": {
+    "x": 90
+   },
+   "actors": {
+    "mika": {
+     "x": 60,
+     "to": 105,
+     "move": [
+      0.2,
+      2.2
+     ]
+    },
+    "prof": {
+     "x": 150,
+     "face": -1
+    }
+   },
+   "say": [
+    {
+     "who": "mika",
+     "text": "Hi professor!",
+     "at": 0.3,
+     "until": 2.4
+    }
+   ]
+  },
+  {
+   "dur": 3.4,
+   "scale": 8,
+   "caption": "could a hat",
+   "cam": {
+    "x": 120,
+    "to": 130
+   },
+   "actors": {
+    "mika": {
+     "do": "wave"
+    },
+    "prof": {
+     "do": "idle"
+    }
+   },
+   "say": [
+    {
+     "who": "prof",
+     "text": "Today we study pixels.",
+     "at": 0.3,
+     "until": 3.2
+    }
+   ],
+   "fx": [
+    {
+     "type": "pickups/coin-spin",
+     "x": 150,
+     "y": -34
+    }
+   ]
+  },
+  {
+   "dur": 3.0,
+   "scale": 10,
+   "transition": "pixel",
+   "caption": "boom",
+   "cam": {
+    "x": 150
+   },
+   "actors": {
+    "mika": {
+     "x": 120,
+     "do": "jump",
+     "at": 0.4
+    },
+    "prof": {
+     "x": 165,
+     "face": -1
+    },
+    "agent": {
+     "x": 205,
+     "to": 175,
+     "move": [
+      0,
+      1.4
+     ],
+     "face": -1
+    }
+   },
+   "say": [
+    {
+     "who": "agent",
+     "text": "Move along.",
+     "at": 1.5
+    }
+   ],
+   "fx": [
+    {
+     "type": "explosions/cartoon-pow",
+     "x": 150,
+     "at": 0.5,
+     "front": true
+    },
+    {
+     "type": "spawn/poof",
+     "x": 205,
+     "at": 1.3
+    }
+   ]
+  }
+ ]
 }

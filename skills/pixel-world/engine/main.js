@@ -121,9 +121,11 @@ function drawScene(i, t) {
   drawSky(g, Lw, Lh, gy, camX, t, world);
   drawProps(g, camX, gy, world, false);
   drawGround(g, Lw, Lh, gy, camX);
+  drawFx(g, sc, i, lt, camX, gy, Lw, Lh, 'back');
   const poses = sc.list.map(l => ({ l, ...actorPose(sc, l, lt) })).sort((a, b) => a.x - b.x);
   poses.forEach(({ l, p, x, y }) => drawActor(g, cast[l.id], { p, y }, x - camX, gy + 2 + y, l.face, gy));
   drawProps(g, camX, gy, world, true);
+  drawFx(g, sc, i, lt, camX, gy, Lw, Lh, 'front');
   sc.says.forEach(s => {
     const o = poses.find(q => q.l.id === s.who); if (!o || lt < s.at || lt > (s.until ?? sc.dur)) return;
     drawBubble(g, s, lt, o.x - camX, gy + 2 + o.y - 31, Lw);
