@@ -42,6 +42,7 @@ Needs Node, Python 3, ffmpeg and Chrome or Chromium (set `CHROME=/path/to/chrome
 - **`callouts`**: 3 labels for a motor, the camera and the frame.
 - **`telemetry`** (optional, up to 2 rows): always shown with a SIMULATED tag. Set it to `null` to hide it. This is a design visualisation, not a flight display, so no real operational claims.
 - **`colors`**: `bg`, `glow`, `dim`, `warm`, `ink`.
+- **`filter`** (optional): `"ascii"` (green characters on a CRT, `ascii_cols` sets the columns, default 80), `"thermal"` (brightness through an ironbow heat palette with noise) or `"crt"` (scanlines and a vignette). Applied to every frame after the scene is drawn. ASCII suits bold shapes; small text turns to noise.
 - **`duration`** (optional): defaults to 6 s; the timeline above is written for 6. **`out`** (optional): output path.
 
 ## Changing it

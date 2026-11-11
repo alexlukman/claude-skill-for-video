@@ -1,7 +1,7 @@
 {
   "name": "claude-skill-for-video",
-  "version": "1.2.0",
-  "description": "Fourteen Claude Code skills that make animations for reels, no footage needed: cartoon-3d, stick-figure, pixel-world, minimalistic-graphics, map-route, breakdown, graph, isometric, coin-chart, neon-flight, blueprint, hologram-hud, chalkboard and poster. Rendered on your computer with HyperFrames, three.js and Playwright.",
+  "version": "1.3.0",
+  "description": "Fifteen Claude Code skills that make animations for reels, no footage needed: cartoon-3d, stick-figure, pixel-world, minimalistic-graphics, map-route, breakdown, graph, isometric, coin-chart, neon-flight, blueprint, hologram-hud, chalkboard, poster and looks. Rendered on your computer with HyperFrames, three.js and Playwright.",
   "author": {
     "name": "Alexander Valentino Lukman",
     "url": "https://github.com/alexlukman"

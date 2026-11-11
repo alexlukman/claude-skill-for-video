@@ -41,6 +41,7 @@ Needs Node, Python 3, ffmpeg and Chrome or Chromium (set `CHROME=/path/to/chrome
 - **`title`**: one line, in capitals.
 - **`labels`**: exactly 3: `[source, the line between, destination]`, each under about 18 characters.
 - **`colors`** (optional): override `bg`, `ground`, `blue`, `yellow`, `ink`, `wall`, `roof`, `leaf`.
+- **`filter`** (optional): `"ascii"` (green characters on a CRT, `ascii_cols` sets the columns, default 80), `"thermal"` (brightness through an ironbow heat palette with noise) or `"crt"` (scanlines and a vignette). Applied to every frame after the scene is drawn. ASCII suits bold shapes; small text turns to noise.
 - **`duration`** (optional): defaults to 6 s; the timeline above is written for 6. **`out`** (optional): output path.
 
 ## Changing it

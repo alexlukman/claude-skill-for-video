@@ -1,6 +1,6 @@
 # claude-skill-for-video
 
-Fourteen [Claude Code](https://claude.com/claude-code) skills that make animated reels with no footage. Describe the idea, Claude writes a small spec, and the video is rendered on your own computer.
+Fifteen [Claude Code](https://claude.com/claude-code) skills that make animated reels with no footage. Describe the idea, Claude writes a small spec, and the video is rendered on your own computer.
 
 | Skill | What it makes |
 |---|---|
@@ -14,6 +14,7 @@ Fourteen [Claude Code](https://claude.com/claude-code) skills that make animated
 | `/hologram-hud` | **New.** A holographic wireframe drone with HUD arcs, scan lines and callouts |
 | `/chalkboard` | **New.** A chalk neural-network diagram: predict, compare, adjust |
 | `/poster` | **New.** An illustrated landscape poster, travel or watercolour look |
+| `/looks` | **New.** One character scene (a worker, a stack of papers, a slipping sheet) in 9 styles: hologram, cyberpunk, paper cutout, blueprint, thermal, anime, ASCII, watercolour, claymation |
 | `/minimalistic-graphics` | Black-and-white line-art animation |
 | `/map-route` | A 3D map with an animated route |
 | `/breakdown` | A 3D exploded view: a phone comes apart into 9 layers, then the view orbits around it, every part labelled |
@@ -22,6 +23,8 @@ Fourteen [Claude Code](https://claude.com/claude-code) skills that make animated
 ![pixel-world demo](docs/pixel-world-demo.jpg)
 
 ![the seven new scene skills, last frames](docs/new-skills-preview.jpg)
+
+![/looks: the same moment in nine styles](docs/looks-preview.jpg)
 
 ## Install
 ```bash
@@ -32,7 +35,7 @@ bash install.sh
 `install.sh` links each skill into `~/.claude/skills/` and installs the render kit (three.js, GSAP, Playwright, all pinned in `kit/package-lock.json`). You need Node, Python 3 and ffmpeg, plus Chrome or Chromium (set `CHROME=/path/to/chrome` if needed). Then in Claude Code, run for example `/pixel-world`.
 
 ## How the new skills work
-The 2D scene skills share `kit/scene2d/`: a canvas page, helpers (`lib.js`), a Playwright renderer and a builder. Each skill is a `scene.js` with a `renderAt(t)` that depends only on time, a `build.py` with defaults and checks, and a `SKILL.md`. Every one renders 1080x1920, 30 fps, 6 s, H.264 yuv420p, and `build.py <spec> --check` writes stills at 0, 1, 3, 5 and 5.9 s and warns about text that does not fit.
+The 2D scene skills share `kit/scene2d/`: a canvas page, helpers (`lib.js`), a Playwright renderer and a builder. Each skill is a `scene.js` with a `renderAt(t)` that depends only on time, a `build.py` with defaults and checks, and a `SKILL.md`. Every one renders 1080x1920, 30 fps, 6 s, H.264 yuv420p, and `build.py <spec> --check` writes stills at 0, 1, 3, 5 and 5.9 s and warns about text that does not fit. Any of them can also take `"filter": "ascii" | "thermal" | "crt"` to post-process every frame.
 
 ## What changed from the original
 This project started from [claude-animation-skills](https://github.com/artemnovitckii/claude-animation-skills) by Artem Novitckii (MIT). Changes:

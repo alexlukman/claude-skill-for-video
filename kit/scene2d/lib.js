@@ -52,3 +52,41 @@ function poly(g, pts, fill, stroke, lw = 2) { g.beginPath(); pts.forEach((p, i) 
 // shade a hex colour: k < 0 darker, k > 0 lighter
 function shade(hex, k) { const n = parseInt(hex.slice(1), 16); let r = n >> 16, gg = n >> 8 & 255, b = n & 255; const f = c => Math.round(k < 0 ? c * (1 + k) : c + (255 - c) * k); return `rgb(${f(r)},${f(gg)},${f(b)})`; }
 window.TOTAL = SPEC.duration || 6; window.FPS = FPS;
+
+// ---------- post filters: any 2D skill can set "filter": "ascii" | "thermal" | "crt" in its spec ----------
+const IRONBOW = [[0, 0, 0], [30, 0, 70], [90, 0, 140], [170, 10, 120], [225, 50, 40], [250, 120, 0], [255, 190, 30], [255, 240, 140], [255, 255, 255]];
+function ironbow(v) { v = clamp(v) * (IRONBOW.length - 1); const i = Math.min(IRONBOW.length - 2, Math.floor(v)), f = v - i, a = IRONBOW[i], b = IRONBOW[i + 1]; return [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f, a[2] + (b[2] - a[2]) * f]; }
+const _tmp = {}; function tmpCanvas(name, w, h) { const c = _tmp[name] ||= document.createElement('canvas'); if (c.width !== w || c.height !== h) { c.width = w; c.height = h; } return c; }
+// map brightness (or a heat render) through the ironbow palette, with blur and sensor noise
+function thermalFilter(t, src = cv) {
+  const w = 540, h = 960, c = tmpCanvas('th', w, h), g = c.getContext('2d', { willReadFrequently: true });
+  g.filter = 'blur(3px)'; g.drawImage(src, 0, 0, w, h); g.filter = 'none';
+  const im = g.getImageData(0, 0, w, h), d = im.data, r = rng(Math.floor(t * 30) + 1);
+  for (let i = 0; i < d.length; i += 4) { const v = (d[i] * .3 + d[i + 1] * .59 + d[i + 2] * .11) / 255 + (r() - .5) * .05; const [R, G, B] = ironbow(v); d[i] = R; d[i + 1] = G; d[i + 2] = B; d[i + 3] = 255; }
+  g.putImageData(im, 0, 0); ctx.save(); ctx.imageSmoothingEnabled = true; ctx.drawImage(c, 0, 0, W, H); ctx.restore();
+}
+// brightness to characters on a ~80-column grid, green on black with glow
+const RAMP = ' .:-=+*#%@';
+function asciiFilter(t, { cols = 80, color = '#45ff7a', top = 0 } = {}) {
+  const cw = W / cols, ch = cw * 1.8, rows = Math.floor((H - top) / ch), c = tmpCanvas('as', cols, rows), g = c.getContext('2d', { willReadFrequently: true });
+  g.drawImage(cv, 0, top, W, rows * ch, 0, 0, cols, rows); const d = g.getImageData(0, 0, cols, rows).data;
+  ctx.fillStyle = '#000'; ctx.fillRect(0, top, W, H - top);
+  ctx.save(); ctx.font = `500 ${Math.round(ch * .95)}px "JetBrains Mono", "DejaVu Sans Mono", monospace`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillStyle = color; ctx.shadowColor = color; ctx.shadowBlur = 8;
+  // auto-levels: the most common brightness (the background) becomes blank, the brightest 1% becomes '@'
+  const lum = new Float32Array(cols * rows); for (let j = 0; j < lum.length; j++) lum[j] = (d[j * 4] * .3 + d[j * 4 + 1] * .59 + d[j * 4 + 2] * .11) / 255;
+  const sorted = Array.from(lum).sort((a, b) => a - b), med = sorted[Math.floor(sorted.length * .5)], hi = Math.max(med + .08, sorted[Math.floor(sorted.length * .99)]);
+  for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) { const v = clamp((Math.abs(lum[y * cols + x] - med)) / (hi - med)), k = Math.min(RAMP.length - 1, Math.floor(Math.pow(v, .8) * RAMP.length)); if (k) { ctx.globalAlpha = .35 + v * .65; ctx.fillText(RAMP[k], (x + .5) * cw, top + (y + .5) * ch); } }
+  ctx.restore();
+}
+// scanlines, a moving bright band and a vignette
+function crtFilter(t) {
+  ctx.save(); ctx.fillStyle = 'rgba(0,0,0,.28)'; for (let y = 0; y < H; y += 4) ctx.fillRect(0, y, W, 2);
+  const by = ((t * 260) % (H + 300)) - 150, bg = ctx.createLinearGradient(0, by - 150, 0, by + 150); bg.addColorStop(0, 'rgba(255,255,255,0)'); bg.addColorStop(.5, 'rgba(255,255,255,.05)'); bg.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = bg; ctx.fillRect(0, by - 150, W, 300);
+  const v = ctx.createRadialGradient(W / 2, H / 2, H * .3, W / 2, H / 2, H * .75); v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,.75)'); ctx.fillStyle = v; ctx.fillRect(0, 0, W, H); ctx.restore();
+}
+function postFilter(name, t) {
+  if (!name) return;
+  if (name === 'thermal') thermalFilter(t);
+  else if (name === 'ascii') { asciiFilter(t, { cols: SPEC.ascii_cols || 80 }); crtFilter(t); }
+  else if (name === 'crt') crtFilter(t);
+}

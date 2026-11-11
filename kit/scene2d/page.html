@@ -14,6 +14,8 @@ html,body{margin:0;background:#000;width:1080px;height:1920px;overflow:hidden}ca
 <script src="lib.js"></script>
 <script src="scene.js"></script>
 <script>
+// wrap the scene's renderAt with the optional post filter from the spec
+if (SPEC.filter && window.renderAt) { const base = window.renderAt; window.renderAt = t => { base(t); postFilter(SPEC.filter, t); }; }
 Promise.all(['500 10px Inter','700 10px Inter','800 10px "Inter Tight"','400 10px Poppins','500 10px "JetBrains Mono"'].map(f => document.fonts.load(f).catch(() => 0)))
   .then(() => { const q = new URLSearchParams(location.search); window.renderAt(+(q.get('t') ?? 0)); window.ready = true; });
 </script>

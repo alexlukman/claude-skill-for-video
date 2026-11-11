@@ -44,6 +44,7 @@ Travel: 0-1 s paper, 1-3 s mountain layers slide up with parallax, 3-4 s the tra
 - **`look`**: `travel` or `watercolour`.
 - **`title`**: under about 20 characters. **`footer`**: a small line at the bottom; for a made-up place keep "FICTIONAL DESTINATION".
 - **`colors`**: `paper`, `ink`, `sky`, `sun`, `m` (5 mountain colours, back to front), `lake`, `trail`, `pine`.
+- **`filter`** (optional): `"ascii"` (green characters on a CRT, `ascii_cols` sets the columns, default 80), `"thermal"` (brightness through an ironbow heat palette with noise) or `"crt"` (scanlines and a vignette). Applied to every frame after the scene is drawn. ASCII suits bold shapes; small text turns to noise.
 - **`duration`** (optional): defaults to 6 s; the timeline above is written for 6. **`out`** (optional): output path.
 
 ## Changing it

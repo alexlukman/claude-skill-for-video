@@ -46,6 +46,7 @@ Needs Node, Python 3, ffmpeg and Chrome or Chromium (set `CHROME=/path/to/chrome
 - **`prediction`** / **`target`**: short strings shown side by side.
 - **`footnote`**: keep it: the diagram is a simplification, not every AI system.
 - **`colors`**: `board`, `board2`, `chalk`, `yellow`, `pink`, `frame`.
+- **`filter`** (optional): `"ascii"` (green characters on a CRT, `ascii_cols` sets the columns, default 80), `"thermal"` (brightness through an ironbow heat palette with noise) or `"crt"` (scanlines and a vignette). Applied to every frame after the scene is drawn. ASCII suits bold shapes; small text turns to noise.
 - **`duration`** (optional): defaults to 6 s; the timeline above is written for 6. **`out`** (optional): output path.
 
 ## Changing it

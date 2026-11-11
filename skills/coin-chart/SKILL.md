@@ -45,6 +45,7 @@ Needs Node, Python 3, ffmpeg and Chrome or Chromium (set `CHROME=/path/to/chrome
 - **`prefix`**, **`suffix`**, **`decimals`**: how values print (`"$"`, `"M"`, `1` gives `$1.2M`).
 - **`source`**: only for real, checked numbers, shown as a footnote. **Without a source the chart says ILLUSTRATIVE DEMO DATA** (change the wording with `demo_label`, e.g. "ILLUSTRATIVE EXAMPLE DATA"). Never present made-up numbers as real.
 - **`unit`**: a short line under the title or at the bottom. **`colors`**: `bg`, `bg2`, `gold`, `goldD`, `goldL`, `ink`, `dim`, `accent`.
+- **`filter`** (optional): `"ascii"` (green characters on a CRT, `ascii_cols` sets the columns, default 80), `"thermal"` (brightness through an ironbow heat palette with noise) or `"crt"` (scanlines and a vignette). Applied to every frame after the scene is drawn. ASCII suits bold shapes; small text turns to noise.
 - **`duration`** (optional): defaults to 6 s; the timeline above is written for 6. **`out`** (optional): output path.
 
 ## Changing it
