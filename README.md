@@ -7,14 +7,14 @@ Fifteen [Claude Code](https://claude.com/claude-code) skills that make animated 
 | `/cartoon-3d` | A 3D cartoon "what if" explainer (three.js): cartoon people, props, slow-motion impacts |
 | `/stick-figure` | A bright stick-figure explainer with captions, whip transitions and sound effects |
 | `/pixel-world` | A 2D pixel-art world with chunky outlined characters, speech bubbles, pixel transitions and **171 pixel effects** (fire, explosions, lightning, weather, pickups, magic) |
-| `/isometric` | **New.** An isometric source-to-home diagram: power station, cables, pulses, a house lighting up |
-| `/coin-chart` | **New.** A bar chart of stacked 3D gold coins on navy (marks made-up numbers as illustrative) |
-| `/neon-flight` | **New.** A looping synthwave flight through a neon wireframe canyon toward a ringed planet |
-| `/blueprint` | **New.** A dimensioned robot-arm blueprint that traces itself on a cyan grid |
-| `/hologram-hud` | **New.** A holographic wireframe drone with HUD arcs, scan lines and callouts |
-| `/chalkboard` | **New.** A chalk neural-network diagram: predict, compare, adjust |
-| `/poster` | **New.** An illustrated landscape poster, travel or watercolour look |
-| `/looks` | **New.** One character scene (a worker, a stack of papers, a slipping sheet) in 9 styles: hologram, cyberpunk, paper cutout, blueprint, thermal, anime, ASCII, watercolour, claymation |
+| `/isometric` | An isometric source-to-home diagram: power station, cables, pulses, a house lighting up |
+| `/coin-chart` | A bar chart of stacked 3D gold coins on navy (marks made-up numbers as illustrative) |
+| `/neon-flight` |  A looping synthwave flight through a neon wireframe canyon toward a ringed planet |
+| `/blueprint` | A dimensioned robot-arm blueprint that traces itself on a cyan grid |
+| `/hologram-hud` |  A holographic wireframe drone with HUD arcs, scan lines and callouts |
+| `/chalkboard` |  A chalk neural-network diagram: predict, compare, adjust |
+| `/poster` |  An illustrated landscape poster, travel or watercolour look |
+| `/looks` |  One character scene (a worker, a stack of papers, a slipping sheet) in 9 styles: hologram, cyberpunk, paper cutout, blueprint, thermal, anime, ASCII, watercolour, claymation |
 | `/minimalistic-graphics` | Black-and-white line-art animation |
 | `/map-route` | A 3D map with an animated route |
 | `/breakdown` | A 3D exploded view: a phone comes apart into 9 layers, then the view orbits around it, every part labelled |
