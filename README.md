@@ -6,7 +6,7 @@ Fifteen [Claude Code](https://claude.com/claude-code) skills that make animated 
 |---|---|
 | `/cartoon-3d` | A 3D cartoon "what if" explainer (three.js): cartoon people, props, slow-motion impacts |
 | `/stick-figure` | A bright stick-figure explainer with captions, whip transitions and sound effects |
-| `/pixel-world` | A 2D pixel-art world with chunky outlined characters, speech bubbles, pixel transitions and **171 pixel effects** (fire, explosions, lightning, weather, pickups, magic) |
+| `/pixel-world` | A 2D pixel-art world with chunky outlined characters, speech bubbles, pixel transitions and **171 pixel effects** (fire, explosions, lightning, weather, pickups, magic). Two art styles: **Alex's Claude Pixel World** (original) and **Growtopia** (the game's block-head avatars with a configurable look) |
 | `/isometric` | An isometric source-to-home diagram: power station, cables, pulses, a house lighting up |
 | `/coin-chart` | A bar chart of stacked 3D gold coins on navy (marks made-up numbers as illustrative) |
 | `/neon-flight` |  A looping synthwave flight through a neon wireframe canyon toward a ringed planet |

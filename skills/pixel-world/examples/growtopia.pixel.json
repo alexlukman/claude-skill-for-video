@@ -1,0 +1,228 @@
+{
+ "style": "growtopia",
+ "world": {
+  "sky": "day",
+  "ground": 0.7,
+  "props": [
+   {
+    "type": "pagoda",
+    "x": 330
+   },
+   {
+    "type": "dirttree",
+    "x": 10
+   },
+   {
+    "type": "dirttree",
+    "x": 300
+   },
+   {
+    "type": "bush",
+    "x": 48
+   },
+   {
+    "type": "sign",
+    "x": 215,
+    "text": "WORLD"
+   },
+   {
+    "type": "flower",
+    "x": 150,
+    "color": "#ff5a7a"
+   },
+   {
+    "type": "crate",
+    "x": 262
+   }
+  ]
+ },
+ "cast": {
+  "base": "base",
+  "wow": "surprised",
+  "farmer": "farmer",
+  "hero": "hero",
+  "boss": "boss",
+  "cool": "cool",
+  "pirate": "pirate",
+  "king": "king",
+  "sporty": "sporty",
+  "toothy": "toothy",
+  "angel": "angel",
+  "demon": "demon",
+  "flame": "flame",
+  "thumbs": {
+   "preset": "thumbs",
+   "tone": "brown"
+  },
+  "sleepy": {
+   "face": {
+    "eyes": "sleepy",
+    "mouth": "dash"
+   },
+   "tone": "light"
+  },
+  "happy": {
+   "face": {
+    "eyes": "closed",
+    "mouth": "grin"
+   },
+   "tone": "peach"
+  }
+ },
+ "scenes": [
+  {
+   "dur": 2.4,
+   "scale": 6,
+   "cam": {
+    "x": 94
+   },
+   "caption": "meet the cast",
+   "actors": {
+    "base": {
+     "x": 30
+    },
+    "wow": {
+     "x": 62
+    },
+    "toothy": {
+     "x": 94
+    },
+    "farmer": {
+     "x": 126
+    },
+    "hero": {
+     "x": 158
+    }
+   }
+  },
+  {
+   "dur": 2.4,
+   "scale": 6,
+   "cam": {
+    "x": 98
+   },
+   "transition": "pixel",
+   "actors": {
+    "boss": {
+     "x": 36
+    },
+    "cool": {
+     "x": 74
+    },
+    "pirate": {
+     "x": 112
+    },
+    "king": {
+     "x": 150
+    }
+   }
+  },
+  {
+   "dur": 2.6,
+   "scale": 6,
+   "cam": {
+    "x": 90
+   },
+   "transition": "pixel",
+   "caption": "extras",
+   "actors": {
+    "angel": {
+     "x": 24
+    },
+    "demon": {
+     "x": 68
+    },
+    "flame": {
+     "x": 112
+    },
+    "thumbs": {
+     "x": 156
+    }
+   }
+  },
+  {
+   "dur": 2.4,
+   "scale": 6,
+   "cam": {
+    "x": 98
+   },
+   "actors": {
+    "sleepy": {
+     "x": 50
+    },
+    "happy": {
+     "x": 98
+    },
+    "base": {
+     "x": 146,
+     "mood": "square"
+    }
+   }
+  },
+  {
+   "dur": 4,
+   "scale": 8,
+   "cam": {
+    "x": 100
+   },
+   "caption": "they talk",
+   "actors": {
+    "base": {
+     "x": 70
+    },
+    "farmer": {
+     "x": 140,
+     "face": -1,
+     "do": "wave"
+    }
+   },
+   "say": [
+    {
+     "who": "base",
+     "text": "Hello farmer!",
+     "at": 0.3,
+     "until": 2
+    },
+    {
+     "who": "farmer",
+     "text": "Hi there!",
+     "at": 2.2,
+     "until": 3.8
+    }
+   ]
+  },
+  {
+   "dur": 3.2,
+   "scale": 8,
+   "cam": {
+    "x": 95
+   },
+   "caption": "moves",
+   "actors": {
+    "sporty": {
+     "x": 40,
+     "to": 100,
+     "move": [
+      0.2,
+      1.6
+     ],
+     "do": "run"
+    },
+    "hero": {
+     "x": 130,
+     "face": -1,
+     "do": "hit",
+     "at": 1.5
+    }
+   },
+   "fx": [
+    {
+     "type": "impacts/hit-spark",
+     "x": 118,
+     "y": -22,
+     "at": 1.5
+    }
+   ]
+  }
+ ]
+}

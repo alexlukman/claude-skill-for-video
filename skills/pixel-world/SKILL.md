@@ -1,6 +1,6 @@
 ---
 name: pixel-world
-description: Makes a 2D pixel-art explainer reel (9:16) in code. Chunky pixel characters with big heads, outlined sprites, a side-view pixel world (sky, clouds, mountains, grass, houses, trees, signs), speech bubbles, a pixel-dissolve transition and 1 to 2 word captions. Use when the user runs /pixel-world or asks for a 2D pixel, Growtopia-like, or retro block-world animation.
+description: Makes a 2D pixel-art explainer reel (9:16) in code, in two art styles. "Alex's Claude Pixel World" (default) and "Growtopia" (block-head avatars on grass and dirt, built from reference pictures). Chunky outlined characters, a side-view pixel world, speech bubbles, pixel effects, a pixel-dissolve transition and 1 to 2 word captions. Use when the user runs /pixel-world or asks for a 2D pixel, Growtopia-like, or retro block-world animation.
 ---
 
 # /pixel-world
@@ -19,6 +19,12 @@ description: Makes a 2D pixel-art explainer reel (9:16) in code. Chunky pixel ch
 
 A side-view 2D world made of big square pixels, in the spirit of block-building sandbox games. The characters and look are original; they are not copies of any game's artwork.
 
+## Art styles
+Two independent styles, chosen with `"style"` in the spec (details and every option are in `STYLES.md`):
+- **`"alex"`, Alex's Claude Pixel World** (default, used when `style` is missing): the original look, small characters, unchanged.
+- **`"growtopia"`, Growtopia**: the original game's 2D look, a tan block-head avatar with big oval eyes, grass-on-dirt platforms, Dirt Trees, purple hills, and a configurable character kit (hair, facial hair, glasses, hats, jerseys, suits, capes). Example: `examples/growtopia.pixel.json`.
+Ask which style when the user does not say. For a reference picture in the growtopia style, translate it into character fields (`STYLES.md`) and keep it original: take the traits (hair, outfit, colours, accessories), not a real person's face or a game's exact character.
+
 ## First use
 This skill's folder is the "Base directory" Claude Code shows when it loads it.
 ```bash
@@ -35,7 +41,7 @@ Needs ffmpeg, Node and Chrome or Chromium. Set `CHROME=/path/to/chrome` if Playw
 4. **Render.** `python3 "$SKILL_DIR/build.py" <spec.json>` writes `<name>.pixel.mp4` and a contact sheet `<name>.pixel.sheet.jpg` (about 1.2x real time).
 5. **Hand over** the mp4 path.
 
-## Turning a reference picture into a character
+## Turning a reference picture into a character (alex style)
 When the user sends a picture or describes a character, translate it into the character spec instead of tracing it. Pick: skin tone, `hair` style, hair colour, `outfit`, outfit colour, an `accent` colour, pants, shoes and up to a few `accessories`. Keep it original: take the idea (chunky body, big head, simple face, bold colours), never a real person's likeness or a game's exact character.
 
 ```json

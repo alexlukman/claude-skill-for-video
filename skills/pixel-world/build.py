@@ -20,6 +20,7 @@ import anim  # noqa: E402
 
 SCALES = (5, 6, 8, 10, 12)            # one pixel of the picture is this many screen pixels (1080 and 1920 divide evenly)
 SKIES = ('day', 'sunset', 'night')
+STYLES = ('alex', 'growtopia')        # "alex" = Alex's Claude Pixel World (default), "growtopia" = Growtopia
 
 
 def check(spec):
@@ -27,6 +28,8 @@ def check(spec):
         sys.exit('spec: "scenes" must be a list with at least one scene')
     if not isinstance(spec.get('cast'), dict) or not spec['cast']:
         sys.exit('spec: "cast" must name at least one character, e.g. {"mika": "mika"} (a preset name) or {"mika": {...}}')
+    if spec.get('style', 'alex') not in STYLES:
+        sys.exit(f'spec: style must be one of {", ".join(STYLES)}')
     if spec.get('world', {}).get('sky', 'day') not in SKIES:
         sys.exit(f'spec: world.sky must be one of {", ".join(SKIES)}')
     for i, sc in enumerate(spec['scenes']):

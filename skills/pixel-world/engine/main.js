@@ -6,12 +6,14 @@ const W = 1080, H = 1920, FPS = 30;
 const SPEC = window.SPEC;
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const easeInOut = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
-const OUTLINE = '#1c1830';
+const STYLE = STYLES[SPEC.style || 'alex'];                       // art style: 'alex' (default) or 'growtopia', see styles.js
+if (!STYLE) throw new Error('unknown style "' + SPEC.style + '" (use: ' + Object.keys(STYLES).join(', ') + ')');
+const OUTLINE = STYLE.outline;
 const canvas = document.getElementById('c'); canvas.width = W; canvas.height = H;
 const out = canvas.getContext('2d'); out.imageSmoothingEnabled = false;
 
-const world = { sky: 'day', ground: .68, props: [], ...(SPEC.world || {}) };
-const cast = {}; Object.entries(SPEC.cast || {}).forEach(([id, def]) => { cast[id] = resolveCharacter(def); });
+const world = { sky: 'day', ground: STYLE.defaultGround, props: [], ...(SPEC.world || {}) };
+const cast = {}; Object.entries(SPEC.cast || {}).forEach(([id, def]) => { cast[id] = STYLE.resolveCharacter(def); });
 
 // ---------- timeline ----------
 let T = 0; const prevActor = {};
@@ -33,8 +35,9 @@ window.TOTAL = TOTAL; window.FPS = FPS;
 // ---------- layers ----------
 const layers = {};
 const layer = S => (layers[S] ||= (() => { const c = document.createElement('canvas'); c.width = W / S; c.height = H / S; const g = c.getContext('2d'); g.imageSmoothingEnabled = false; return { c, g }; })());
-const spr = document.createElement('canvas'); spr.width = spr.height = 48; const sg = spr.getContext('2d');
-const sil = document.createElement('canvas'); sil.width = sil.height = 48; const ng = sil.getContext('2d');
+const SP = STYLE.sprite;                                           // scratch canvas one character is drawn on
+const spr = document.createElement('canvas'); spr.width = SP.w; spr.height = SP.h; const sg = spr.getContext('2d');
+const sil = document.createElement('canvas'); sil.width = SP.w; sil.height = SP.h; const ng = sil.getContext('2d');
 
 function actorPose(sc, A, lt) {
   const a = A.a, [m0, m1] = a.move || [0, sc.dur];
@@ -57,20 +60,21 @@ function actorPose(sc, A, lt) {
   }
   const talk = sc.says.find(s => s.who === A.id && lt >= s.at && lt < s.at + String(s.text).length / s.cps + .35);
   if (talk) p.mouth = Math.floor(lt * 9) % 3 === 0 ? 0 : (Math.floor(lt * 9) % 3);
+  if (a.mood) p.mood = a.mood;                                         // growtopia style: smile, frown, smirk, open, talk
   p.blink = ((lt + A.idx * .9) % 3.4) < .12;
   return { p, x, y };
 }
 
 function drawActor(g, ch, pose, x, y, face, gy) {
-  sg.clearRect(0, 0, 48, 48); sg.save(); sg.translate(24, 40); drawCharacter(sg, ch, pose.p); sg.restore();
-  ng.globalCompositeOperation = 'source-over'; ng.clearRect(0, 0, 48, 48); ng.drawImage(spr, 0, 0);
-  ng.globalCompositeOperation = 'source-in'; ng.fillStyle = OUTLINE; ng.fillRect(0, 0, 48, 48); ng.globalCompositeOperation = 'source-over';
+  sg.clearRect(0, 0, SP.w, SP.h); sg.save(); sg.translate(SP.ox, SP.oy); STYLE.drawCharacter(sg, ch, pose.p); sg.restore();
+  ng.globalCompositeOperation = 'source-over'; ng.clearRect(0, 0, SP.w, SP.h); ng.drawImage(spr, 0, 0);
+  ng.globalCompositeOperation = 'source-in'; ng.fillStyle = STYLE.spriteOutline || OUTLINE; ng.fillRect(0, 0, SP.w, SP.h); ng.globalCompositeOperation = 'source-over';
   const air = Math.max(0, -pose.y);                                                   // soft shadow shrinks while jumping
   g.fillStyle = 'rgba(0,0,0,.28)'; const sw = Math.max(6, 16 - Math.floor(air / 4)); g.fillRect(Math.round(x) - Math.floor(sw / 2), gy + 3, sw, 1);
   g.save(); g.translate(Math.round(x), Math.round(y)); g.scale(face, 1);
-  for (const [dx, dy] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) g.drawImage(sil, -24 + dx, -40 + dy);
-  g.drawImage(spr, -24, -40);
-  if (pose.p.flash) { ng.globalCompositeOperation = 'source-in'; ng.fillStyle = '#ffffff'; ng.clearRect(0, 0, 48, 48); ng.drawImage(spr, 0, 0); ng.fillRect(0, 0, 48, 48); ng.globalCompositeOperation = 'source-over'; g.globalAlpha = .7; g.drawImage(sil, -24, -40); g.globalAlpha = 1; }
+  for (const [dx, dy] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) g.drawImage(sil, -SP.ox + dx, -SP.oy + dy);
+  g.drawImage(spr, -SP.ox, -SP.oy);
+  if (pose.p.flash) { ng.globalCompositeOperation = 'source-in'; ng.fillStyle = '#ffffff'; ng.clearRect(0, 0, SP.w, SP.h); ng.drawImage(spr, 0, 0); ng.fillRect(0, 0, SP.w, SP.h); ng.globalCompositeOperation = 'source-over'; g.globalAlpha = .7; g.drawImage(sil, -SP.ox, -SP.oy); g.globalAlpha = 1; }
   g.restore();
 }
 
@@ -118,17 +122,17 @@ function drawScene(i, t) {
   const hitter = sc.list.find(l => (l.a.do === 'hit') && lt >= (l.a.at ?? .5) && lt < (l.a.at ?? .5) + .35);
   const shake = hitter ? (Math.floor(lt * 30) % 2 ? 2 : -2) : 0;
   g.save(); g.setTransform(1, 0, 0, 1, shake, 0);
-  drawSky(g, Lw, Lh, gy, camX, t, world);
-  drawProps(g, camX, gy, world, false);
-  drawGround(g, Lw, Lh, gy, camX);
+  STYLE.drawSky(g, Lw, Lh, gy, camX, t, world);
+  STYLE.drawProps(g, camX, gy, world, false);
+  STYLE.drawGround(g, Lw, Lh, gy, camX);
   drawFx(g, sc, i, lt, camX, gy, Lw, Lh, 'back');
   const poses = sc.list.map(l => ({ l, ...actorPose(sc, l, lt) })).sort((a, b) => a.x - b.x);
   poses.forEach(({ l, p, x, y }) => drawActor(g, cast[l.id], { p, y }, x - camX, gy + 2 + y, l.face, gy));
-  drawProps(g, camX, gy, world, true);
+  STYLE.drawProps(g, camX, gy, world, true);
   drawFx(g, sc, i, lt, camX, gy, Lw, Lh, 'front');
   sc.says.forEach(s => {
     const o = poses.find(q => q.l.id === s.who); if (!o || lt < s.at || lt > (s.until ?? sc.dur)) return;
-    drawBubble(g, s, lt, o.x - camX, gy + 2 + o.y - 31, Lw);
+    drawBubble(g, s, lt, o.x - camX, gy + 2 + o.y - STYLE.headY, Lw);
   });
   g.restore();
   out.imageSmoothingEnabled = false; out.drawImage(lc, 0, 0, Lw, Lh, 0, 0, W, H);
