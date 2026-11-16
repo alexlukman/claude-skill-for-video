@@ -37,7 +37,34 @@
       0.03
      ]
     ],
-    "paintVar": 0.55
+    "paintVar": 0.55,
+    "char": {
+     "build": "kid",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "twintails",
+      "color": "#3a2216"
+     },
+     "eyes": "big",
+     "top": {
+      "style": "blouse",
+      "color": "#fff3dc",
+      "sleeves": "short"
+     },
+     "bottom": {
+      "style": "dress",
+      "color": "#3f8a5a"
+     },
+     "shoes": "#7a3a22",
+     "acc": [
+      "headband:#f2c230"
+     ],
+     "pet": "dog",
+     "petColor": "#e8d8c0",
+     "blush": true,
+     "mouth": "smile"
+    }
    }
   },
   {
@@ -62,7 +89,34 @@
       "grain",
       0.02
      ]
-    ]
+    ],
+    "char": {
+     "build": "kid",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "messy",
+      "color": "#c8582a"
+     },
+     "eyes": "big",
+     "top": {
+      "style": "hoodie",
+      "color": "#2f7fc8",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "shorts",
+      "color": "#e0c080"
+     },
+     "shoes": "#e8e8e8",
+     "acc": [
+      "backpack:#e8a020"
+     ],
+     "socks": "#ffffff",
+     "freckles": true,
+     "pet": "cat",
+     "petColor": "#e88a2a"
+    }
    }
   },
   {
@@ -90,7 +144,31 @@
     ],
     "holds": 1.5,
     "speed": 90,
-    "panY": 120
+    "panY": 120,
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "bob",
+      "color": "#2a1c18"
+     },
+     "eyes": "big",
+     "top": {
+      "style": "jacket",
+      "color": "#f2c230",
+      "color2": "#ffffff",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#3a4a6a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "scarf:#d8332e"
+     ]
+    }
    }
   },
   {
@@ -116,7 +194,32 @@
       "grain",
       0.03
      ]
-    ]
+    ],
+    "char": {
+     "build": "adult",
+     "head": "round",
+     "skin": "#e8c09a",
+     "hair": {
+      "style": "shaggy",
+      "color": "#151515"
+     },
+     "eyes": "normal",
+     "top": {
+      "style": "jacket",
+      "color": "#6b6a3a",
+      "color2": "#3a3a3a",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#3a3226"
+     },
+     "shoes": "#2a2018",
+     "acc": [
+      "satchel"
+     ],
+     "mouth": "line"
+    }
    },
    "note": "No live footage is used; the realistic motion is a hand-tuned walk/run cycle."
   },
@@ -135,7 +238,31 @@
     "line": "none",
     "fps": 12,
     "proportions": "cartoon",
-    "eyes": "big"
+    "eyes": "big",
+    "char": {
+     "build": "stocky",
+     "head": "round",
+     "skin": "#f8dcc0",
+     "hair": {
+      "style": "short",
+      "color": "#e8a020"
+     },
+     "eyes": "button",
+     "top": {
+      "style": "coat",
+      "color": "#2aa05a",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#5a4a8a"
+     },
+     "shoes": "#2a2a2a",
+     "acc": [
+      "beanie:#7a3ab0"
+     ],
+     "mouth": "line"
+    }
    }
   },
   {
@@ -159,7 +286,34 @@
     "fps": 24,
     "post": [
      "paper"
-    ]
+    ],
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "long",
+      "color": "#2a1e1a"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "sailor",
+      "color": "#fafafa",
+      "color2": "#2a3a7a",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "skirt",
+      "color": "#2a3a7a"
+     },
+     "shoes": "#3a2a22",
+     "acc": [
+      "ribbon:#d8332e"
+     ],
+     "eyeColor": "#5a3020",
+     "socks": "#f8f8f8",
+     "blush": true
+    }
    }
   },
   {
@@ -185,7 +339,35 @@
       "bloom",
       0.15
      ]
-    ]
+    ],
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "long",
+      "color": "#6b3b24"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "blouse",
+      "color": "#fafafa",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "skirt",
+      "color": "#3a5a9a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "scarf:#d8332e",
+      "satchel"
+     ],
+     "eyeColor": "#6a3a1a",
+     "socks": "#f0f0f0",
+     "blush": true,
+     "mouth": "smile"
+    }
    }
   },
   {
@@ -245,7 +427,33 @@
      ]
     ],
     "spec": 0.5,
-    "shadow": 0.5
+    "shadow": 0.5,
+    "char": {
+     "build": "stocky",
+     "head": "bean",
+     "skin": "#f2c8a0",
+     "hair": {
+      "style": "curly",
+      "color": "#e07a2a"
+     },
+     "eyes": "button",
+     "top": {
+      "style": "shirt",
+      "color": "#e8e0c8",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "shorts",
+      "color": "#6a8a3a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "glasses"
+     ],
+     "socks": "#c8302a",
+     "pet": "cat",
+     "petColor": "#808890"
+    }
    }
   },
   {
@@ -303,7 +511,32 @@
       0.04
      ]
     ],
-    "shadow": 0.5
+    "shadow": 0.5,
+    "char": {
+     "build": "kid",
+     "head": "round",
+     "skin": "#e0b088",
+     "hair": {
+      "style": "messy",
+      "color": "#1e1814"
+     },
+     "eyes": "bead",
+     "top": {
+      "style": "jacket",
+      "color": "#d8702a",
+      "color2": "#e8d8b0",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#4a3a2a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "headband:#c8302a",
+      "backpack:#7a5236"
+     ]
+    }
    }
   },
   {
@@ -325,7 +558,30 @@
       "grain",
       0.02
      ]
-    ]
+    ],
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "long",
+      "color": "#111"
+     },
+     "eyes": "normal",
+     "top": {
+      "style": "blouse",
+      "color": "#222",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "dress",
+      "color": "#222"
+     },
+     "shoes": "#4a3222",
+     "acc": [],
+     "pet": "cat",
+     "petColor": "#111111"
+    }
    }
   },
   {
@@ -355,6 +611,30 @@
     "colors": {
      "hair": "#141414",
      "scarf": "#2a2a2a"
+    },
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "spiky",
+      "color": "#1a1a1a"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "jacket",
+      "color": "#2a2a2a",
+      "color2": "#ffffff",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#1a1a1a"
+     },
+     "shoes": "#1a1a1a",
+     "acc": [],
+     "eyeColor": "#2a2a2a",
+     "mouth": "smile"
     }
    }
   },
@@ -377,7 +657,33 @@
     "fps": 12,
     "post": [
      "paper"
-    ]
+    ],
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "long",
+      "color": "#7a4a2a"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "hoodie",
+      "color": "#a8b8d0",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#e8dcc8"
+     },
+     "shoes": "#c87a6a",
+     "acc": [
+      "bow:#e05a5a"
+     ],
+     "eyeColor": "#7a4a2a",
+     "blush": true,
+     "mouth": "smile"
+    }
    }
   },
   {
@@ -422,7 +728,29 @@
     "line": "weighted",
     "lineW": 2.6,
     "eyes": "big",
-    "fps": 24
+    "fps": 24,
+    "char": {
+     "build": "adult",
+     "head": "round",
+     "skin": "#e8c4a0",
+     "hair": {
+      "style": "shaggy",
+      "color": "#1a1a1a"
+     },
+     "eyes": "normal",
+     "top": {
+      "style": "shirt",
+      "color": "#3a4a5a",
+      "sleeves": "short"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#2a2a2a"
+     },
+     "shoes": "#ffffff",
+     "acc": [],
+     "mouth": "line"
+    }
    },
    "note": "Motion is a tuned cycle, not traced footage."
   },
@@ -440,7 +768,6 @@
     "fill": "flat",
     "line": "clean",
     "lineW": 5,
-    "limbs": "tube",
     "proportions": "cartoon",
     "eyes": "big",
     "fps": 12,
@@ -449,7 +776,32 @@
       "grain",
       0.05
      ]
-    ]
+    ],
+    "char": {
+     "build": "tube",
+     "head": "round",
+     "skin": "#fbeedc",
+     "hair": {
+      "style": "bald",
+      "color": "#222"
+     },
+     "eyes": "pie",
+     "top": {
+      "style": "tank",
+      "color": "#f2c230",
+      "sleeves": "none"
+     },
+     "bottom": {
+      "style": "shorts",
+      "color": "#2a8a3a"
+     },
+     "shoes": "#c83020",
+     "acc": [
+      "hat:#2a2a2a",
+      "gloves"
+     ],
+     "mouth": "smile"
+    }
    }
   },
   {
@@ -470,7 +822,32 @@
     "lineW": 3.5,
     "proportions": "cartoon",
     "eyes": "big",
-    "fps": 12
+    "fps": 12,
+    "char": {
+     "build": "kid",
+     "head": "round",
+     "skin": "#8a5a3a",
+     "hair": {
+      "style": "curly",
+      "color": "#2a1a14"
+     },
+     "eyes": "big",
+     "top": {
+      "style": "shirt",
+      "color": "#f26a8a",
+      "sleeves": "short"
+     },
+     "bottom": {
+      "style": "shorts",
+      "color": "#3a3a8a"
+     },
+     "shoes": "#f2f2f2",
+     "acc": [
+      "headband:#ffffff"
+     ],
+     "socks": "#ffffff",
+     "mouth": "smile"
+    }
    }
   },
   {
@@ -519,7 +896,32 @@
     "lineW": 3,
     "lineChar": true,
     "fps": 30,
-    "speedlines": true
+    "speedlines": true,
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#e8b88a",
+     "hair": {
+      "style": "spiky",
+      "color": "#7a3a1a"
+     },
+     "eyes": "normal",
+     "top": {
+      "style": "tank",
+      "color": "#8a5a3a",
+      "sleeves": "none"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#3a3a4a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "wristband:#d8332e",
+      "backpack:#3a3a3a"
+     ],
+     "eyeColor": "#5a2a10"
+    }
    }
   },
   {
@@ -593,7 +995,29 @@
     "lineColor": "#555555",
     "fps": 12,
     "foreground": false,
-    "overlay": "flipbook"
+    "overlay": "flipbook",
+    "char": {
+     "build": "kid",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "short",
+      "color": "#333"
+     },
+     "eyes": "dot",
+     "top": {
+      "style": "shirt",
+      "color": "#ffffff",
+      "sleeves": "short"
+     },
+     "bottom": {
+      "style": "shorts",
+      "color": "#ffffff"
+     },
+     "shoes": "#ffffff",
+     "acc": [],
+     "mouth": "smile"
+    }
    }
   },
   {
@@ -620,7 +1044,36 @@
       0.18
      ]
     ],
-    "shadow": 0.5
+    "shadow": 0.5,
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "curly",
+      "color": "#7a4a22"
+     },
+     "eyes": "big",
+     "top": {
+      "style": "jacket",
+      "color": "#8a5a3a",
+      "color2": "#e8d8b0",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#4a4a3a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "goggles",
+      "scarf:#c8402a",
+      "backpack:#5a3a22"
+     ],
+     "eyeColor": "#4a7a3a",
+     "freckles": true,
+     "mouth": "smile"
+    }
    },
    "note": "Drawn in 2D to look 3D; for real 3D use /cartoon-3d."
   },
@@ -650,7 +1103,30 @@
       "vignette",
       0.4
      ]
-    ]
+    ],
+    "char": {
+     "build": "adult",
+     "head": "round",
+     "skin": "#e8c0a0",
+     "hair": {
+      "style": "long",
+      "color": "#5a3a26"
+     },
+     "eyes": "normal",
+     "top": {
+      "style": "coat",
+      "color": "#6a5a4a",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#3a3a3a"
+     },
+     "shoes": "#4a3222",
+     "acc": [],
+     "freckles": true,
+     "mouth": "line"
+    }
    },
    "note": "Not achievable in this 2D engine: this is the closest soft-shaded cinematic look."
   },
@@ -667,7 +1143,31 @@
     "palette": "lowpoly",
     "fill": "lowpoly",
     "line": "none",
-    "fps": 30
+    "fps": 30,
+    "char": {
+     "build": "block",
+     "head": "block",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "block",
+      "color": "#8a5a3a"
+     },
+     "eyes": "dot",
+     "top": {
+      "style": "shirt",
+      "color": "#d8c09a",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#6a5a4a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "scarf:#c8302a",
+      "backpack:#8a5a3a"
+     ]
+    }
    }
   },
   {
@@ -688,7 +1188,32 @@
     "lineW": 5,
     "lineChar": true,
     "eyes": "big",
-    "fps": 30
+    "fps": 30,
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "spiky",
+      "color": "#1a1a2a"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "jacket",
+      "color": "#f4f4f4",
+      "color2": "#2a3a6a",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#2a3a6a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "cape:#c8302a"
+     ],
+     "eyeColor": "#3a2a1a"
+    }
    }
   },
   {
@@ -710,7 +1235,31 @@
     "levels": 8,
     "post": [
      "pixel"
-    ]
+    ],
+    "char": {
+     "build": "block",
+     "head": "block",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "block",
+      "color": "#6b3b24"
+     },
+     "eyes": "dot",
+     "top": {
+      "style": "tunic",
+      "color": "#8a4a2a",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#4a3a2a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "scarf:#c8302a",
+      "torch"
+     ]
+    }
    }
   },
   {
@@ -741,7 +1290,32 @@
     "dof": 3,
     "proportions": "cartoon",
     "spec": 0.5,
-    "shadow": 0.5
+    "shadow": 0.5,
+    "char": {
+     "build": "kid",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "curly",
+      "color": "#7a3a1a"
+     },
+     "eyes": "big",
+     "top": {
+      "style": "shirt",
+      "color": "#a05a3a",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#5a4a3a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "scarf:#a0302a",
+      "backpack:#6a4a2a"
+     ],
+     "mouth": "smile"
+    }
    }
   },
   {
@@ -763,7 +1337,34 @@
     "speed": 360,
     "dof": 2,
     "push": 0.08,
-    "fps": 24
+    "fps": 24,
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "ponytail",
+      "color": "#5a2a1a"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "jacket",
+      "color": "#2a5a8a",
+      "color2": "#ffffff",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "skirt",
+      "color": "#3a3a5a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "scarf:#e8a020"
+     ],
+     "eyeColor": "#4a6a8a",
+     "socks": "#3a3a3a",
+     "blush": true
+    }
    }
   },
   {
@@ -821,12 +1422,35 @@
     "palette": "brick",
     "fill": "soft",
     "spec": 0.5,
-    "hair": "block",
     "proportions": "cartoon",
     "eyes": "dot",
     "fps": 12,
     "jitter": 1,
-    "shadow": 0.5
+    "shadow": 0.5,
+    "char": {
+     "build": "block",
+     "head": "block",
+     "skin": "#e8b890",
+     "hair": {
+      "style": "block",
+      "color": "#3a2a1a"
+     },
+     "eyes": "dot",
+     "top": {
+      "style": "shirt",
+      "color": "#2a6be0",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#3a3a3a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "cap:#c8302a"
+     ],
+     "mouth": "smile"
+    }
    },
    "note": "A generic toy-brick look; no brand names, logos or official figures."
   },
@@ -852,7 +1476,30 @@
       "grain",
       0.05
      ]
-    ]
+    ],
+    "char": {
+     "build": "adult",
+     "head": "round",
+     "skin": "#e0b48c",
+     "hair": {
+      "style": "messy",
+      "color": "#1a1a1a"
+     },
+     "eyes": "normal",
+     "top": {
+      "style": "jacket",
+      "color": "#c8b090",
+      "color2": "#fafafa",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#2a2a2a"
+     },
+     "shoes": "#f4f4f4",
+     "acc": [],
+     "mouth": "smile"
+    }
    },
    "note": "Uses an illustrated figure, not real performers; the stepped timing is the imitated part."
   },
@@ -894,7 +1541,29 @@
      ]
     ],
     "paintAlpha": 0.75,
-    "paintVar": 0.8
+    "paintVar": 0.8,
+    "char": {
+     "build": "adult",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "long",
+      "color": "#d8702a"
+     },
+     "eyes": "normal",
+     "top": {
+      "style": "blouse",
+      "color": "#f0e0c0",
+      "sleeves": "short"
+     },
+     "bottom": {
+      "style": "dress",
+      "color": "#2a5ab0"
+     },
+     "shoes": "#4a3222",
+     "acc": [],
+     "mouth": "line"
+    }
    }
   },
   {
@@ -1047,7 +1716,30 @@
     "overlay": "collage",
     "post": [
      "paper"
-    ]
+    ],
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "long",
+      "color": "#3a2a22"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "blouse",
+      "color": "#f0e8d8",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "skirt",
+      "color": "#8a3a3a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "bow:#3a6ac8"
+     ]
+    }
    }
   },
   {
@@ -1071,7 +1763,28 @@
      "sky2": "#ffd0e0"
     },
     "overlay": "surreal",
-    "fps": 24
+    "fps": 24,
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "messy",
+      "color": "#3a2a22"
+     },
+     "eyes": "narrow",
+     "top": {
+      "style": "shirt",
+      "color": "#f0e0d0",
+      "sleeves": "short"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#4a4a6a"
+     },
+     "shoes": "#4a3222",
+     "acc": []
+    }
    }
   },
   {
@@ -1106,7 +1819,31 @@
     "fps": 24,
     "post": [
      "glitch"
-    ]
+    ],
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "messy",
+      "color": "#eef0f8"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "hoodie",
+      "color": "#2a2a3a",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#1a1a2a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "earring"
+     ],
+     "eyeColor": "#8a4ac8"
+    }
    }
   },
   {
@@ -1127,7 +1864,29 @@
     "overlay": "psychedelic",
     "post": [
      "hue"
-    ]
+    ],
+    "char": {
+     "build": "adult",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "long",
+      "color": "#c83a9a"
+     },
+     "eyes": "narrow",
+     "top": {
+      "style": "blouse",
+      "color": "#f2c230",
+      "sleeves": "none"
+     },
+     "bottom": {
+      "style": "dress",
+      "color": "#2aa0a0"
+     },
+     "shoes": "#4a3222",
+     "acc": [],
+     "mouth": "smile"
+    }
    }
   },
   {
@@ -1153,7 +1912,29 @@
     ],
     "post": [
      "paper"
-    ]
+    ],
+    "char": {
+     "build": "adult",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "bun",
+      "color": "#111111"
+     },
+     "eyes": "normal",
+     "top": {
+      "style": "robe",
+      "color": "#f0ece0",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#2a2a2a"
+     },
+     "shoes": "#1a1a1a",
+     "acc": [],
+     "mouth": "line"
+    }
    }
   },
   {
@@ -1180,7 +1961,29 @@
       "grain",
       0.07
      ]
-    ]
+    ],
+    "char": {
+     "build": "adult",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "long",
+      "color": "#222222"
+     },
+     "eyes": "normal",
+     "top": {
+      "style": "coat",
+      "color": "#555555",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#333333"
+     },
+     "shoes": "#4a3222",
+     "acc": [],
+     "mouth": "line"
+    }
    }
   },
   {
@@ -1253,7 +2056,35 @@
     "dither": 0.3,
     "post": [
      "pixel"
-    ]
+    ],
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "long",
+      "color": "#e8e8f0"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "armor",
+      "color": "#a8b0c0",
+      "color2": "#d8dce2",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "skirt",
+      "color": "#3a3a5a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "bow:#c8302a",
+      "scarf:#c8302a",
+      "sword"
+     ],
+     "eyeColor": "#7a5ac8",
+     "socks": "#2a2a3a"
+    }
    }
   },
   {
@@ -1275,7 +2106,28 @@
     "fps": 24,
     "post": [
      "vhs"
-    ]
+    ],
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "messy",
+      "color": "#5a2a1a"
+     },
+     "eyes": "normal",
+     "top": {
+      "style": "shirt",
+      "color": "#6a8ac8",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#3a3a4a"
+     },
+     "shoes": "#4a3222",
+     "acc": []
+    }
    }
   },
   {
@@ -1297,7 +2149,30 @@
     "levels": 12,
     "post": [
      "pixel"
-    ]
+    ],
+    "char": {
+     "build": "block",
+     "head": "block",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "block",
+      "color": "#6b3b24"
+     },
+     "eyes": "narrow",
+     "top": {
+      "style": "tunic",
+      "color": "#a0522d",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#4a3a2a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "scarf:#7a3a1a"
+     ]
+    }
    }
   },
   {
@@ -1323,7 +2198,34 @@
     },
     "post": [
      "pixel"
-    ]
+    ],
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "long",
+      "color": "#3a1a3a"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "jacket",
+      "color": "#5a5a8a",
+      "color2": "#e8e0f0",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "skirt",
+      "color": "#3a2a4a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "ribbon:#e05a8a",
+      "scarf:#c8302a",
+      "backpack:#6a3a2a"
+     ],
+     "eyeColor": "#6a3a8a"
+    }
    }
   },
   {
@@ -1359,7 +2261,29 @@
     "lineColor": "#1f3f9a",
     "fps": 8,
     "foreground": false,
-    "overlay": "notebook"
+    "overlay": "notebook",
+    "char": {
+     "build": "kid",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "spiky",
+      "color": "#222"
+     },
+     "eyes": "dot",
+     "top": {
+      "style": "hoodie",
+      "color": "#ffffff",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "shorts",
+      "color": "#ffffff"
+     },
+     "shoes": "#ffffff",
+     "acc": [],
+     "mouth": "smile"
+    }
    }
   },
   {
@@ -1387,7 +2311,31 @@
     ],
     "eyes": "none",
     "gait": "walk",
-    "speed": 140
+    "speed": 140,
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "short",
+      "color": "#5a3a22"
+     },
+     "eyes": "none",
+     "top": {
+      "style": "robe",
+      "color": "#a0603a",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#4a3a2a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "hood:#8a5a3a",
+      "satchel"
+     ]
+    }
    }
   },
   {
@@ -1410,7 +2358,31 @@
     "post": [
      "halftone"
     ],
-    "lineAfter": true
+    "lineAfter": true,
+    "char": {
+     "build": "adult",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "shaggy",
+      "color": "#6b3b24"
+     },
+     "eyes": "narrow",
+     "top": {
+      "style": "jacket",
+      "color": "#3a5a8a",
+      "color2": "#f0e0c0",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#2a2a3a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "scarf:#c8302a"
+     ]
+    }
    }
   },
   {
@@ -1433,7 +2405,32 @@
     "post": [
      "halftone"
     ],
-    "lineAfter": true
+    "lineAfter": true,
+    "char": {
+     "build": "adult",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "bob",
+      "color": "#1a1a1a"
+     },
+     "eyes": "narrow",
+     "top": {
+      "style": "jacket",
+      "color": "#e8c020",
+      "color2": "#2a2a2a",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#2a2a5a"
+     },
+     "shoes": "#c8302a",
+     "acc": [
+      "earring"
+     ],
+     "mouth": "line"
+    }
    }
   },
   {
@@ -1464,7 +2461,33 @@
     "rim": true,
     "eyes": "big",
     "fps": 30,
-    "overlay": "gamehud"
+    "overlay": "gamehud",
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "ponytail",
+      "color": "#c83a2a"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "armor",
+      "color": "#5a6a8a",
+      "color2": "#c8ccd2",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#2a2a3a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "sword",
+      "gloves"
+     ],
+     "eyeColor": "#3a8a5a"
+    }
    }
   },
   {
@@ -1490,7 +2513,31 @@
       0.02
      ]
     ],
-    "overlay": "meme"
+    "overlay": "meme",
+    "char": {
+     "build": "chibi",
+     "head": "bean",
+     "skin": "#9ad0f0",
+     "hair": {
+      "style": "bald",
+      "color": "#222"
+     },
+     "eyes": "dot",
+     "top": {
+      "style": "shirt",
+      "color": "#f26a2a",
+      "sleeves": "short"
+     },
+     "bottom": {
+      "style": "shorts",
+      "color": "#2a2a5a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "glasses"
+     ],
+     "mouth": "smile"
+    }
    },
    "note": "Original reactions only; no existing meme characters."
   },
@@ -1517,7 +2564,32 @@
       "bloom",
       0.25
      ]
-    ]
+    ],
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "long",
+      "color": "#b8a8e0"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "blouse",
+      "color": "#f4f0fa",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "skirt",
+      "color": "#6a5a9a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "bow:#ffffff"
+     ],
+     "eyeColor": "#6a5ab0",
+     "blush": true
+    }
    },
    "note": "Imitates the look; nothing is AI-generated."
   },
@@ -1539,7 +2611,30 @@
     "lineChar": true,
     "speed": 380,
     "dof": 2.5,
-    "fps": 24
+    "fps": 24,
+    "char": {
+     "build": "kid",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "short",
+      "color": "#2a1a14"
+     },
+     "eyes": "normal",
+     "top": {
+      "style": "tunic",
+      "color": "#4a5a7a",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#3a3a3a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "cape:#c8302a"
+     ]
+    }
    }
   },
   {
@@ -1620,7 +2715,28 @@
       0.02
      ]
     ],
-    "overlay": "bones"
+    "overlay": "bones",
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "shaggy",
+      "color": "#6b3b24"
+     },
+     "eyes": "normal",
+     "top": {
+      "style": "tank",
+      "color": "#3a4a6a",
+      "sleeves": "none"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#2a2a3a"
+     },
+     "shoes": "#4a3222",
+     "acc": []
+    }
    }
   },
   {
@@ -1800,7 +2916,30 @@
     "fps": 12,
     "post": [
      "paper"
-    ]
+    ],
+    "char": {
+     "build": "kid",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "bob",
+      "color": "#2a2a2a"
+     },
+     "eyes": "big",
+     "top": {
+      "style": "shirt",
+      "color": "#f2c230",
+      "sleeves": "short"
+     },
+     "bottom": {
+      "style": "shorts",
+      "color": "#3a6ac8"
+     },
+     "shoes": "#4a3222",
+     "acc": [],
+     "socks": "#ffffff",
+     "mouth": "smile"
+    }
    }
   },
   {
@@ -1826,7 +2965,28 @@
       "grain",
       0.04
      ]
-    ]
+    ],
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "messy",
+      "color": "#444"
+     },
+     "eyes": "normal",
+     "top": {
+      "style": "shirt",
+      "color": "#ffffff",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#ffffff"
+     },
+     "shoes": "#ffffff",
+     "acc": []
+    }
    }
   },
   {
@@ -1845,7 +3005,6 @@
     "fill": "flat",
     "line": "clean",
     "lineW": 5,
-    "limbs": "tube",
     "proportions": "cartoon",
     "eyes": "big",
     "fps": 12,
@@ -1858,7 +3017,32 @@
       "vignette",
       0.6
      ]
-    ]
+    ],
+    "char": {
+     "build": "tube",
+     "head": "bean",
+     "skin": "#fbeedc",
+     "hair": {
+      "style": "mohawk",
+      "color": "#1a1a1a"
+     },
+     "eyes": "pie",
+     "top": {
+      "style": "shirt",
+      "color": "#c8302a",
+      "sleeves": "none"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#2a2a2a"
+     },
+     "shoes": "#3a2a1a",
+     "acc": [
+      "gloves",
+      "headband:#2a6be0"
+     ],
+     "mouth": "smile"
+    }
    }
   },
   {
@@ -1885,7 +3069,32 @@
      ]
     ],
     "eyes": "big",
-    "highlight": true
+    "highlight": true,
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "spiky",
+      "color": "#3a2a5a"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "jacket",
+      "color": "#2a4a9a",
+      "color2": "#f0f0f0",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#3a3a3a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "scarf:#f2c230"
+     ],
+     "eyeColor": "#3a4a8a"
+    }
    }
   },
   {
@@ -1919,7 +3128,33 @@
       0.4
      ]
     ],
-    "eyes": "big"
+    "eyes": "big",
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "long",
+      "color": "#6a3a8a"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "jacket",
+      "color": "#c8302a",
+      "color2": "#ffffff",
+      "sleeves": "short"
+     },
+     "bottom": {
+      "style": "skirt",
+      "color": "#2a2a4a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "headband:#f2c230"
+     ],
+     "eyeColor": "#8a3a6a",
+     "socks": "#ffffff"
+    }
    }
   },
   {
@@ -1941,7 +3176,32 @@
     "fps": 30,
     "speedlines": true,
     "push": 0.12,
-    "speed": 420
+    "speed": 420,
+    "char": {
+     "build": "teen",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "spiky",
+      "color": "#c8ccd8"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "jacket",
+      "color": "#2a2a2a",
+      "color2": "#c8302a",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#1a1a1a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "wristband:#c8302a"
+     ],
+     "eyeColor": "#c8302a"
+    }
    }
   },
   {
@@ -1961,7 +3221,34 @@
     "lineW": 4,
     "proportions": "chibi",
     "eyes": "big",
-    "fps": 12
+    "fps": 12,
+    "char": {
+     "build": "chibi",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "twintails",
+      "color": "#f28ab0"
+     },
+     "eyes": "anime",
+     "top": {
+      "style": "blouse",
+      "color": "#ffffff",
+      "sleeves": "short"
+     },
+     "bottom": {
+      "style": "dress",
+      "color": "#8ac8f0"
+     },
+     "shoes": "#f28ab0",
+     "acc": [
+      "bow:#f2c230"
+     ],
+     "eyeColor": "#5a6ac8",
+     "socks": "#ffffff",
+     "blush": true,
+     "mouth": "smile"
+    }
    }
   },
   {
@@ -1982,7 +3269,31 @@
     "gait": "walk",
     "fps": 12,
     "holds": 1.5,
-    "speed": 120
+    "speed": 120,
+    "char": {
+     "build": "stocky",
+     "head": "oval",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "short",
+      "color": "#3a2a1a"
+     },
+     "eyes": "big",
+     "top": {
+      "style": "shirt",
+      "color": "#f2f2f2",
+      "sleeves": "short"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#3a5a8a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "glasses"
+     ],
+     "mouth": "line"
+    }
    }
   },
   {
@@ -2000,12 +3311,35 @@
     "charFill": "cel",
     "line": "clean",
     "lineW": 5,
-    "limbs": "tube",
     "proportions": "chibi",
     "eyes": "big",
     "speed": 520,
     "speedlines": true,
-    "fps": 24
+    "fps": 24,
+    "char": {
+     "build": "kid",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "messy",
+      "color": "#f2c230"
+     },
+     "eyes": "big",
+     "top": {
+      "style": "shirt",
+      "color": "#2aa05a",
+      "sleeves": "short"
+     },
+     "bottom": {
+      "style": "shorts",
+      "color": "#c8302a"
+     },
+     "shoes": "#4a3222",
+     "acc": [],
+     "socks": "#ffffff",
+     "freckles": true,
+     "mouth": "smile"
+    }
    }
   },
   {
@@ -2024,7 +3358,29 @@
     "eyes": "dot",
     "desat": 0.35,
     "foreground": false,
-    "fps": 12
+    "fps": 12,
+    "char": {
+     "build": "adult",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "short",
+      "color": "#222222"
+     },
+     "eyes": "dot",
+     "top": {
+      "style": "shirt",
+      "color": "#f26a5a",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "pants",
+      "color": "#2a3a5a"
+     },
+     "shoes": "#2a2a2a",
+     "acc": [],
+     "mouth": "line"
+    }
    }
   },
   {
@@ -2043,7 +3399,31 @@
     "line": "clean",
     "lineW": 4,
     "fps": 12,
-    "overlay": "panels"
+    "overlay": "panels",
+    "char": {
+     "build": "kid",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "bob",
+      "color": "#f0d070"
+     },
+     "eyes": "dot",
+     "top": {
+      "style": "shirt",
+      "color": "#f2c230",
+      "sleeves": "short"
+     },
+     "bottom": {
+      "style": "shorts",
+      "color": "#2a2a2a"
+     },
+     "shoes": "#4a3222",
+     "acc": [
+      "cap:#2a6be0"
+     ],
+     "mouth": "smile"
+    }
    }
   },
   {
@@ -2066,7 +3446,33 @@
     "fps": 12,
     "post": [
      "paper"
-    ]
+    ],
+    "char": {
+     "build": "kid",
+     "head": "round",
+     "skin": "#f6d2b0",
+     "hair": {
+      "style": "bun",
+      "color": "#8a4a2a"
+     },
+     "eyes": "big",
+     "top": {
+      "style": "blouse",
+      "color": "#ffffff",
+      "sleeves": "short"
+     },
+     "bottom": {
+      "style": "pinafore",
+      "color": "#6a8ac8"
+     },
+     "shoes": "#4a3222",
+     "acc": [],
+     "socks": "#f0e0e0",
+     "pet": "cat",
+     "petColor": "#a0a0a0",
+     "blush": true,
+     "mouth": "smile"
+    }
    }
   },
   {
@@ -2096,7 +3502,30 @@
       "grain",
       0.04
      ]
-    ]
+    ],
+    "char": {
+     "build": "adult",
+     "head": "round",
+     "skin": "#ece2ea",
+     "hair": {
+      "style": "long",
+      "color": "#141018"
+     },
+     "eyes": "narrow",
+     "top": {
+      "style": "blouse",
+      "color": "#2a1a2a",
+      "sleeves": "long"
+     },
+     "bottom": {
+      "style": "dress",
+      "color": "#3a1a3a"
+     },
+     "shoes": "#141014",
+     "acc": [
+      "cape:#4a1a2a"
+     ]
+    }
    }
   }
  ]

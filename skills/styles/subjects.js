@@ -268,7 +268,7 @@ SUBJECT.ar = (t) => {                       // AR: a phone held over a desk; the
   ctx.save(); ctx.translate(540, 980); ctx.rotate(-.04); ctx.fillStyle = '#111'; ctx.beginPath(); ctx.roundRect(-300, -560, 600, 1120, 60); ctx.fill(); ctx.beginPath(); ctx.roundRect(-280, -540, 560, 1080, 44); ctx.clip();
   ctx.fillStyle = '#9a8a76'; ctx.fillRect(-280, -540, 560, 1080); ctx.fillStyle = '#5a4636'; ctx.fillRect(-280, 140, 560, 400);
   const k = tween(t, .5, 1.5); ctx.strokeStyle = `rgba(80,220,255,${k})`; ctx.lineWidth = 6; ctx.beginPath(); ctx.ellipse(0, 330, 200 * k, 50 * k, 0, 0, TAU); ctx.stroke();
-  if (t > 1.2) { ctx.save(); ctx.translate(0, 330); ctx.scale(.42 * tween(t, 1.2, 1.8, ease.back), .42 * tween(t, 1.2, 1.8, ease.back)); ctx.translate(-HERO_X, -GROUND); const sc = hero(t); sc.shapes.forEach(s => { ctx.fillStyle = colorOf(s.mat); ctx.fill(pathOf(s.pts)); ctx.strokeStyle = '#2a2026'; ctx.lineWidth = 4; ctx.stroke(pathOf(s.pts)); }); ctx.restore(); }
+  if (t > 1.2) { ctx.save(); ctx.translate(0, 330); ctx.scale(.42 * tween(t, 1.2, 1.8, ease.back), .42 * tween(t, 1.2, 1.8, ease.back)); ctx.translate(-HERO_X, -GROUND); const sc = hero(t); sc.shapes.forEach(s => { ctx.fillStyle = colorOf(s.mat, s.col); ctx.fill(pathOf(s.pts)); ctx.strokeStyle = '#2a2026'; ctx.lineWidth = 4; ctx.stroke(pathOf(s.pts)); }); ctx.restore(); }
   ctx.restore(); text(ctx, 'AR · PLACED ON THE TABLE', W / 2, 330, { size: 44, weight: 600, family: MONO_FONT, color: '#2a2026', track: 2 });
 };
 SUBJECT.realtime = (t) => {                 // real-time: the scene inside an engine editor with a hierarchy, gizmo and live FPS counter

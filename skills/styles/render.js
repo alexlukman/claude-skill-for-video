@@ -25,9 +25,9 @@ const PALETTES = {
 const MONO = { ink: ['#ffffff', '#111111'], charcoal: ['#efeae0', '#1a1714'], sepia: ['#f3e6c8', '#3a2414'], gb: ['#9bbc0f', '#0f380f'] };
 function lum(hex) { const n = parseInt(hex.slice(1), 16); return ((n >> 16) * .3 + (n >> 8 & 255) * .59 + (n & 255) * .11) / 255; }
 function mix(a, b, k) { const A = parseInt(a.slice(1), 16), B = parseInt(b.slice(1), 16), f = (s) => Math.round(lerp((A >> s) & 255, (B >> s) & 255, k)); return '#' + [16, 8, 0].map(s => f(s).toString(16).padStart(2, '0')).join(''); }
-function colorOf(mat) {
+function colorOf(mat, col) {
   const pal = { ...BASE, ...(PALETTES[R.palette] || {}), ...(R.colors || {}) };
-  let c = pal[mat] || '#888888';
+  let c = (R.colors && R.colors[mat]) || col || pal[mat] || '#888888';
   if (R.mono && !(R.keep || []).includes(mat)) { const [light, dark] = MONO[R.mono] || MONO.ink, l = lum(c); c = mix(dark, light, R.monoCurve ? Math.pow(l, R.monoCurve) : l); }
   if (R.desat) { const l = lum(c); c = mix(c, mix('#000000', '#ffffff', l), R.desat); }
   return c;
@@ -70,7 +70,7 @@ const FILL = {
 let _paper; function paperPattern(g) { if (!_paper) { const c = document.createElement('canvas'); c.width = c.height = 256; const x = c.getContext('2d'), r = rng(2); for (let i = 0; i < 1400; i++) { x.strokeStyle = r() > .5 ? 'rgba(255,255,255,.16)' : 'rgba(80,50,20,.09)'; x.lineWidth = .8; const a = r() * PI, px = r() * 256, py = r() * 256; x.beginPath(); x.moveTo(px, py); x.lineTo(px + Math.cos(a) * 9, py + Math.sin(a) * 9); x.stroke(); } _paper = c; } return g.createPattern(_paper, 'repeat'); }
 // ---------------------------------------------------------------- lines
 function strokeShape(g, s, pts, f, late) {
-  const L = R.line; if (R.lineAfter && !late && !LINEPASS) return; if (!L || L === 'none' || s.mat === 'sky' || s.mat === 'grass' || (s.layer === 'sky' && !R.lineSky)) return;
+  const L = R.line; if (R.lineAfter && !late && !LINEPASS) return; if (s.noline || !L || L === 'none' || s.mat === 'sky' || s.mat === 'grass' || (s.layer === 'sky' && !R.lineSky)) return;
   if (R.lineChar && s.layer !== 'char') return;
   const w = (R.lineW || 3) * (s.layer === 'char' ? 1 : s.layer === 'far' ? .55 : .8), col = R.lineColor || '#2a2026';
   g.save(); g.lineJoin = 'round'; g.lineCap = 'round'; g.strokeStyle = col;
@@ -110,9 +110,9 @@ function drawStyledScene(g, t) {
     let pts = s.pts;
     if (R.jitter) pts = jitter(pts, s.seed * 13 + step * 7, R.jitter);                     // stop-motion wobble
     if (R.boilFill && s.layer === 'char') pts = jitter(pts, s.seed * 31 + Math.floor(f / 2), R.boilFill);
-    const p = pathOf(pts), c = colorOf(s.mat);
+    const p = pathOf(pts), c = colorOf(s.mat, s.col);
     if (LINEPASS) { gg.fillStyle = '#ffffff'; gg.fill(p); strokeShape(gg, s, pts, f, true); return; }
-    (FILL[fill] || FILL.flat)(gg, { ...s, pts }, p, c, f);
+    if (s.alpha) { gg.save(); gg.globalAlpha = s.alpha; } (FILL[fill] || FILL.flat)(gg, { ...s, pts }, p, c, f); if (s.alpha) gg.restore();
     if (s.glow && R.sunGlow !== false) { gg.save(); gg.globalAlpha = .35; gg.filter = 'blur(30px)'; gg.fillStyle = c; gg.fill(p); gg.restore(); }
     strokeShape(gg, s, pts, f);
   };

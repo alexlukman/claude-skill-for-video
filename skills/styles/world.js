@@ -66,77 +66,7 @@ function foreground(t, cam) {
     S.push({ mat: 'tuft', pts: [[x - 30, y], [x - 12, y - h], [x, y - 30], [x + 14, y - h * .9], [x + 30, y]], layer: 'fg', par: 1.4 }); }
   return S;
 }
-// ---------------------------------------------------------------- the hero
-// pose(t) gives joint positions for a run (or walk) cycle; shapes() turns them into material shapes.
-function heroPose(t) {
-  const gait = R.gait || 'run', cyc = gait === 'walk' ? 1.0 : .62, ph = t / cyc * TAU, k = gait === 'walk' ? .55 : 1;
-  const prop = R.proportions || 'normal';
-  const scale = 1.4 * (prop === 'chibi' ? .82 : prop === 'tall' ? 1.06 : 1), headK = prop === 'chibi' ? 2.1 : prop === 'cartoon' ? 1.45 : prop === 'tall' ? .95 : 1.22;
-  const thigh = 104 * scale * (prop === 'chibi' ? .62 : 1), shin = 100 * scale * (prop === 'chibi' ? .6 : 1);
-  // run cycle: the thigh swings +-0.7 rad; the knee stays soft on contact, folds most while the leg swings through
-  // (heel kicks up behind, then the knee lifts in front), and straightens as the foot reaches forward.
-  const leg = p => { const a = (gait === 'walk' ? .42 : .72) * Math.sin(p);
-    const fold = Math.max(0, Math.sin(p + 1.25)), b = gait === 'walk' ? .12 + .55 * Math.pow(fold, 2) : .22 + 1.45 * Math.pow(fold, 1.4);
-    const kn = dirA(a), an = dirA(a - b); return { knee: [kn[0] * thigh, kn[1] * thigh], ankle: [kn[0] * thigh + an[0] * shin, kn[1] * thigh + an[1] * shin], a: a - b }; };
-  const L1 = leg(ph), L2 = leg(ph + PI), drop = Math.max(L1.ankle[1], L2.ankle[1]);
-  const bob = gait === 'walk' ? Math.abs(Math.cos(ph)) * 4 : Math.abs(Math.sin(ph)) * 16;
-  const hip = [HERO_X, GROUND - 30 * scale - drop - bob], lean = gait === 'walk' ? .04 : .12;
-  const torsoL = 172 * scale * (prop === 'chibi' ? .62 : 1), sh = add(hip, [Math.sin(lean) * torsoL, -Math.cos(lean) * torsoL]);
-  const headR = 56 * scale * headK, head = add(sh, [14 + Math.sin(lean) * 30 * headK, -headR * 1.08]);
-  // upper arm swings opposite the legs; the elbow bends FORWARD (forearm points ahead and up), more when the arm swings forward
-  const arm = p => { const sw = Math.sin(p), a = -(gait === 'walk' ? .5 : 1.05) * sw, bend = gait === 'walk' ? .3 + .2 * Math.max(0, -sw) : 1.35 + .6 * Math.max(0, -sw);
-    const el = add(shoulder, dirA(a), 88 * scale), hand = add(el, dirA(a + bend), 80 * scale); return { el, hand }; };
-  const shoulder = add(sh, [-4 * scale, 26 * scale]);              // arms hang from the shoulder, below the neck
-  return { ph, hip, sh, shoulder, head, headR, lean, legs: [L1, L2], arms: [arm(ph + PI), arm(ph)], scale, bob, prop, t };
-}
-function hero(t) {
-  const Q = heroPose(t), S = [], P = (mat, pts, extra) => S.push({ mat, pts, layer: 'char', par: 0, ...extra });
-  const { hip, sh, head, headR, scale, shoulder } = Q, tube = R.limbs === 'tube';
-  const lw = tube ? 11 : 1;
-  const legShapes = (L, back) => { const K = add(hip, L.knee), A = add(hip, L.ankle), m = back ? 'pants2' : 'pants';
-    P(m, capsule(hip, K, tube ? lw : 30 * scale, tube ? lw : 25 * scale), { joint: K, part: 'leg' }); P(m, capsule(K, A, tube ? lw : 24 * scale, tube ? lw : 20 * scale), { part: 'leg' });
-    const toe = add(A, [Math.cos(L.a * .3) * 50 * scale, Math.sin(L.a * .3) * 8]);
-    P(back ? 'boot2' : 'boot', tube ? ell(add(A, [22, 6]), 34, 20) : [add(A, [-24 * scale, -14]), add(A, [26 * scale, -12]), add(toe, [12, 4]), add(toe, [10, 22]), add(A, [-26 * scale, 22])], { part: 'foot' }); return { K, A }; };
-  const armShapes = (Arm, back) => { const m = back ? 'shirt2' : 'shirt';
-    P(m, capsule(shoulder, Arm.el, tube ? lw : 24 * scale, tube ? lw : 21 * scale), { joint: Arm.el, part: 'arm' }); P(m, capsule(Arm.el, Arm.hand, tube ? lw : 20 * scale, tube ? lw : 17 * scale), { part: 'arm' });
-    P(tube ? 'glove' : 'skin', circ(Arm.hand, (tube ? 26 : 17) * scale, 16), { part: 'hand', hand: 1 }); };
-  // back limbs
-  const backLeg = Math.sin(Q.ph) > 0 ? Q.legs[0] : Q.legs[1], frontLeg = backLeg === Q.legs[0] ? Q.legs[1] : Q.legs[0];
-  armShapes(Q.arms[0], true); const BL = legShapes(backLeg, true);
-  // scarf tail streams behind, waving
-  const tail = [], n = 10, wave = R.scarf === 'still' ? 0 : 1;
-  for (let i = 0; i <= n; i++) { const u = i / n; tail.push(add(add(sh, [-10, 26]), [-u * 300 * scale, -u * 40 + Math.sin(Q.t * 9 - u * 5) * 26 * u * wave])); }
-  const tw = i => (16 - i * .7) * scale;
-  P('scarf', [...tail.map((p, i) => add(p, [0, -tw(i)])), ...tail.slice().reverse().map((p, i) => add(p, [0, tw(n - i)]))], { part: 'scarf', tail: 1 });
-  // torso and strap
-  P('shirt', capsule(hip, sh, 46 * scale, 50 * scale), { joint: hip, part: 'torso' });
-  P('belt', capsule(add(hip, [-36 * scale, -6]), add(hip, [40 * scale, -14]), 7 * scale), { part: 'torso' });
-  P('strap', capsule(add(sh, [26 * scale, 6]), add(hip, [-38 * scale, 6]), 8 * scale), { part: 'torso' });
-  P('bag', rect(hip[0] - 80 * scale, hip[1] - 20, 52 * scale, 60 * scale), { part: 'bag' });
-  const FL = legShapes(frontLeg, false);
-  // head
-  P('skin', capsule(add(sh, [6, 4]), add(head, [-6, headR * .6]), 20 * scale), { part: 'neck' });
-  P('skin', ell(head, headR * .92, headR, 32), { part: 'head', head: 1 });
-  P('scarf', ell(add(sh, [8, 4]), 54 * scale, 28 * scale, 20, -.15), { part: 'scarf' });
-  const hx = head[0], hy = head[1], hr = headR, H2 = (u, v) => [hx + u * hr, hy + v * hr];
-  // hair: bangs over the forehead, spikes blown back by the wind (sways a little)
-  const sway = Math.sin(Q.t * 7) * .05;
-  const HAIR = R.hair === 'block' ? [[-1, -.2], [-1, -1.05], [.95, -1.05], [.95, -.25]]
-    : [[1.0, -.05], [.78, -.38], [.9, -.78], [.48, -.6], [.38, -1.08], [0, -.82], [-.22, -1.28], [-.46, -.98], [-.88, -1.14], [-.82, -.72], [-1.34, -.6], [-.96, -.28], [-1.3, .08], [-.86, .22], [-.92, .62], [-.58, .42], [-.46, .06], [.06, -.34], [.62, -.12]];
-  P('hair', HAIR.map(([u, v]) => H2(u - (u < 0 ? sway * -u : 0), v)), { part: 'hair', hair: 1 });
-  P('ear', ell(H2(-.3, .12), .12 * hr, .17 * hr, 14), { part: 'ear' });
-  P('skin', [H2(.9, .02), H2(1.06, .2), H2(.9, .26)], { part: 'nose' });
-  if (R.eyes !== 'none') {
-    const big = R.eyes === 'big' ? 1.35 : R.eyes === 'dot' ? .45 : 1, e = H2(.5, .02);
-    if (big > .6) { P('eyewhite', ell(e, .15 * hr * big, .2 * hr * big, 18), { part: 'eye' }); P('eye', ell(add(e, [.04 * hr * big, .02 * hr]), .1 * hr * big, .16 * hr * big, 16), { part: 'eye', eye: 1 });
-      P('eyewhite', circ(add(e, [.07 * hr * big, -.06 * hr * big]), .035 * hr * big, 8), { part: 'shine' }); }
-    else P('eye', ell(e, .07 * hr, .09 * hr, 12), { part: 'eye', eye: 1 });
-    P('brow', capsule(H2(.32, -.28 - .04 * big), H2(.66, -.24 - .04 * big), .035 * hr), { part: 'face' });
-    P('mouth', ell(H2(.64, .5), .12 * hr, .09 * hr * (1 + .35 * Math.sin(Q.t * 4)), 14), { part: 'face' });
-  }
-  armShapes(Q.arms[1], false);
-  return { shapes: S, pose: Q, joints: [sh, Q.arms[1].el, hip, FL.K, BL.K] };
-}
+// the hero lives in character.js (heroPose, hero)
 // the whole scene for one moment: ordered back to front
 function sceneAt(t) {
   const cam = (R.camera === 'still' ? 0 : t * (R.speed ?? 260));

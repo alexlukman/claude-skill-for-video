@@ -20,7 +20,7 @@ import scene2d  # noqa: E402
 
 CAT = json.loads((HERE / 'catalog.json').read_text())
 BY = {e['slug']: e for e in CAT['styles']}
-SCRIPTS = ['world.js', 'render.js', 'subjects.js', 'main.js']
+SCRIPTS = ['world.js', 'character.js', 'render.js', 'subjects.js', 'main.js']
 
 
 def find(key):
