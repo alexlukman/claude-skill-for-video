@@ -72,27 +72,33 @@ function heroPose(t) {
   const gait = R.gait || 'run', cyc = gait === 'walk' ? 1.0 : .62, ph = t / cyc * TAU, k = gait === 'walk' ? .55 : 1;
   const prop = R.proportions || 'normal';
   const scale = 1.4 * (prop === 'chibi' ? .82 : prop === 'tall' ? 1.06 : 1), headK = prop === 'chibi' ? 2.1 : prop === 'cartoon' ? 1.45 : prop === 'tall' ? .95 : 1.22;
-  const thigh = 120 * scale * (prop === 'chibi' ? .62 : 1), shin = 118 * scale * (prop === 'chibi' ? .6 : 1);
-  const leg = p => { const a = .62 * k * Math.sin(p), b = (gait === 'walk' ? .5 : 1.1) * Math.max(0, Math.sin(p + 1.9));
+  const thigh = 104 * scale * (prop === 'chibi' ? .62 : 1), shin = 100 * scale * (prop === 'chibi' ? .6 : 1);
+  // run cycle: the thigh swings +-0.7 rad; the knee stays soft on contact, folds most while the leg swings through
+  // (heel kicks up behind, then the knee lifts in front), and straightens as the foot reaches forward.
+  const leg = p => { const a = (gait === 'walk' ? .42 : .72) * Math.sin(p);
+    const fold = Math.max(0, Math.sin(p + 1.25)), b = gait === 'walk' ? .12 + .55 * Math.pow(fold, 2) : .22 + 1.45 * Math.pow(fold, 1.4);
     const kn = dirA(a), an = dirA(a - b); return { knee: [kn[0] * thigh, kn[1] * thigh], ankle: [kn[0] * thigh + an[0] * shin, kn[1] * thigh + an[1] * shin], a: a - b }; };
   const L1 = leg(ph), L2 = leg(ph + PI), drop = Math.max(L1.ankle[1], L2.ankle[1]);
-  const bob = gait === 'walk' ? 0 : Math.abs(Math.cos(ph)) * 10;
-  const hip = [HERO_X, GROUND - 30 * scale - drop - bob], lean = gait === 'walk' ? .06 : .22;
+  const bob = gait === 'walk' ? Math.abs(Math.cos(ph)) * 4 : Math.abs(Math.sin(ph)) * 16;
+  const hip = [HERO_X, GROUND - 30 * scale - drop - bob], lean = gait === 'walk' ? .04 : .12;
   const torsoL = 172 * scale * (prop === 'chibi' ? .62 : 1), sh = add(hip, [Math.sin(lean) * torsoL, -Math.cos(lean) * torsoL]);
   const headR = 56 * scale * headK, head = add(sh, [14 + Math.sin(lean) * 30 * headK, -headR * 1.08]);
-  const arm = p => { const a = -.75 * k * Math.sin(p), el = add(sh, dirA(a + .1), 95 * scale), hand = add(el, dirA(a - (gait === 'walk' ? .2 : 1.3)), 90 * scale); return { el, hand }; };
-  return { ph, hip, sh, head, headR, lean, legs: [L1, L2], arms: [arm(ph + PI), arm(ph)], scale, bob, prop, t };
+  // upper arm swings opposite the legs; the elbow bends FORWARD (forearm points ahead and up), more when the arm swings forward
+  const arm = p => { const sw = Math.sin(p), a = -(gait === 'walk' ? .5 : 1.05) * sw, bend = gait === 'walk' ? .3 + .2 * Math.max(0, -sw) : 1.35 + .6 * Math.max(0, -sw);
+    const el = add(shoulder, dirA(a), 88 * scale), hand = add(el, dirA(a + bend), 80 * scale); return { el, hand }; };
+  const shoulder = add(sh, [-4 * scale, 26 * scale]);              // arms hang from the shoulder, below the neck
+  return { ph, hip, sh, shoulder, head, headR, lean, legs: [L1, L2], arms: [arm(ph + PI), arm(ph)], scale, bob, prop, t };
 }
 function hero(t) {
   const Q = heroPose(t), S = [], P = (mat, pts, extra) => S.push({ mat, pts, layer: 'char', par: 0, ...extra });
-  const { hip, sh, head, headR, scale } = Q, tube = R.limbs === 'tube';
+  const { hip, sh, head, headR, scale, shoulder } = Q, tube = R.limbs === 'tube';
   const lw = tube ? 11 : 1;
   const legShapes = (L, back) => { const K = add(hip, L.knee), A = add(hip, L.ankle), m = back ? 'pants2' : 'pants';
     P(m, capsule(hip, K, tube ? lw : 30 * scale, tube ? lw : 25 * scale), { joint: K, part: 'leg' }); P(m, capsule(K, A, tube ? lw : 24 * scale, tube ? lw : 20 * scale), { part: 'leg' });
     const toe = add(A, [Math.cos(L.a * .3) * 50 * scale, Math.sin(L.a * .3) * 8]);
     P(back ? 'boot2' : 'boot', tube ? ell(add(A, [22, 6]), 34, 20) : [add(A, [-24 * scale, -14]), add(A, [26 * scale, -12]), add(toe, [12, 4]), add(toe, [10, 22]), add(A, [-26 * scale, 22])], { part: 'foot' }); return { K, A }; };
   const armShapes = (Arm, back) => { const m = back ? 'shirt2' : 'shirt';
-    P(m, capsule(sh, Arm.el, tube ? lw : 24 * scale, tube ? lw : 21 * scale), { joint: Arm.el, part: 'arm' }); P(m, capsule(Arm.el, Arm.hand, tube ? lw : 20 * scale, tube ? lw : 17 * scale), { part: 'arm' });
+    P(m, capsule(shoulder, Arm.el, tube ? lw : 24 * scale, tube ? lw : 21 * scale), { joint: Arm.el, part: 'arm' }); P(m, capsule(Arm.el, Arm.hand, tube ? lw : 20 * scale, tube ? lw : 17 * scale), { part: 'arm' });
     P(tube ? 'glove' : 'skin', circ(Arm.hand, (tube ? 26 : 17) * scale, 16), { part: 'hand', hand: 1 }); };
   // back limbs
   const backLeg = Math.sin(Q.ph) > 0 ? Q.legs[0] : Q.legs[1], frontLeg = backLeg === Q.legs[0] ? Q.legs[1] : Q.legs[0];

@@ -26,7 +26,7 @@ OVERLAY.gamehud = (t) => {                  // game-based animation: an in-game 
 OVERLAY.bones = (t, sc) => {                // skeletal animation: the rig drawn over the character
   const Q = sc.hero.pose, j = Q, lines = [[j.hip, j.sh], [j.sh, j.head]];
   j.legs.forEach(L => { lines.push([j.hip, add(j.hip, L.knee)], [add(j.hip, L.knee), add(j.hip, L.ankle)]); });
-  j.arms.forEach(A => lines.push([j.sh, A.el], [A.el, A.hand]));
+  j.arms.forEach(A => lines.push([j.shoulder, A.el], [A.el, A.hand]));
   ctx.save(); ctx.strokeStyle = '#3ef0ff'; ctx.fillStyle = '#3ef0ff'; ctx.shadowColor = '#3ef0ff'; ctx.shadowBlur = 12; ctx.lineWidth = 6; ctx.globalAlpha = .9;
   lines.forEach(([a, b]) => { ctx.beginPath(); ctx.moveTo(...a); ctx.lineTo(...b); ctx.stroke(); ctx.beginPath(); ctx.arc(a[0], a[1], 11, 0, TAU); ctx.fill(); }); ctx.restore();
   const names = ['Root', ' Spine', '  Chest', '   Neck', '    Head', ' L_Arm', ' R_Arm', ' L_Leg', ' R_Leg'];
@@ -79,7 +79,7 @@ OVERLAY.meme = (t, sc) => {                 // meme: hard punch-in zooms on the 
 SUBJECT.stick = (t) => {                    // stick figure on paper (the full skill is /stick-figure)
   ctx.fillStyle = '#fbf8f0'; ctx.fillRect(0, 0, W, H); const Q = heroPose(t); ctx.save(); ctx.strokeStyle = '#151515'; ctx.lineWidth = 12; ctx.lineCap = 'round';
   const L = (a, b) => { ctx.beginPath(); ctx.moveTo(...a); ctx.lineTo(...b); ctx.stroke(); };
-  L(Q.hip, Q.sh); Q.legs.forEach(l => { L(Q.hip, add(Q.hip, l.knee)); L(add(Q.hip, l.knee), add(Q.hip, l.ankle)); }); Q.arms.forEach(a => { L(Q.sh, a.el); L(a.el, a.hand); });
+  L(Q.hip, Q.sh); Q.legs.forEach(l => { L(Q.hip, add(Q.hip, l.knee)); L(add(Q.hip, l.knee), add(Q.hip, l.ankle)); }); Q.arms.forEach(a => { L(Q.shoulder, a.el); L(a.el, a.hand); });
   ctx.fillStyle = '#fbf8f0'; ctx.beginPath(); ctx.arc(Q.head[0], Q.head[1], 58, 0, TAU); ctx.fill(); ctx.stroke(); ctx.strokeStyle = '#d8332e'; ctx.lineWidth = 14; L(add(Q.sh, [10, 10]), add(Q.sh, [-120, 40 + Math.sin(t * 9) * 20]));
   ctx.strokeStyle = '#151515'; ctx.lineWidth = 6; L([0, GROUND + 2], [W, GROUND + 2]); const r = rng(Math.floor(t * 6)); ctx.lineWidth = 4; for (let i = 0; i < 5; i++) { const x = ((300 - t * 260 + i * 260) % 1300 + 1300) % 1300 - 100; L([x, GROUND + 30], [x - 40, GROUND + 30]); }
   ctx.restore();
@@ -177,7 +177,7 @@ SUBJECT.documentary = (t) => {              // documentary: an archival map, a s
 };
 SUBJECT.mocap = (t) => {                    // motion capture: a marker suit on a capture stage drives a digital character beside it
   bgFill('#0c0f18', '#1a2030'); ctx.save(); ctx.strokeStyle = 'rgba(80,140,255,.25)'; ctx.lineWidth = 2; for (let i = 0; i < 16; i++) { const y = 1500 + i * i * 2.4; ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); } for (let i = -10; i <= 10; i++) { ctx.beginPath(); ctx.moveTo(W / 2 + i * 50, 1500); ctx.lineTo(W / 2 + i * 160, H); ctx.stroke(); } ctx.restore();
-  const Q = heroPose(t), shift = (p, dx) => [p[0] + dx - HERO_X + 300, p[1] - 80], segs = Q2 => [[Q2.hip, Q2.sh], ...Q2.legs.flatMap(l => [[Q2.hip, add(Q2.hip, l.knee)], [add(Q2.hip, l.knee), add(Q2.hip, l.ankle)]]), ...Q2.arms.flatMap(a => [[Q2.sh, a.el], [a.el, a.hand]])];
+  const Q = heroPose(t), shift = (p, dx) => [p[0] + dx - HERO_X + 300, p[1] - 80], segs = Q2 => [[Q2.hip, Q2.sh], ...Q2.legs.flatMap(l => [[Q2.hip, add(Q2.hip, l.knee)], [add(Q2.hip, l.knee), add(Q2.hip, l.ankle)]]), ...Q2.arms.flatMap(a => [[Q2.shoulder, a.el], [a.el, a.hand]])];
   [-20, 470].forEach((dx, side) => { segs(Q).forEach(([a, b]) => { const A = shift(a, dx), B = shift(b, dx); ctx.save(); ctx.strokeStyle = side ? '#8fa8d8' : '#14161c'; ctx.lineCap = 'round'; ctx.lineWidth = side ? 40 : 46; ctx.beginPath(); ctx.moveTo(...A); ctx.lineTo(...B); ctx.stroke();
     if (side) { ctx.strokeStyle = 'rgba(200,220,255,.5)'; ctx.lineWidth = 2; ctx.stroke(); } else { ctx.fillStyle = '#f0f0f0'; [A, B].forEach(p => { ctx.beginPath(); ctx.arc(p[0], p[1], 9, 0, TAU); ctx.fill(); }); } ctx.restore(); });
     const hd = shift(Q.head, dx); ctx.fillStyle = side ? '#8fa8d8' : '#14161c'; ctx.beginPath(); ctx.arc(hd[0], hd[1], 56, 0, TAU); ctx.fill(); if (!side) { ctx.fillStyle = '#f0f0f0'; [[-20, -40], [20, -46], [40, -10]].forEach(([x, y]) => { ctx.beginPath(); ctx.arc(hd[0] + x, hd[1] + y, 8, 0, TAU); ctx.fill(); }); } });
