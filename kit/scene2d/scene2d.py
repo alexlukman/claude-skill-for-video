@@ -26,7 +26,8 @@ def merge(a, b):
     return out
 
 
-def build(skill_dir, defaults, check=None):
+def build(skill_dir, defaults, check=None, scripts=None):
+    """scripts: optional list of .js files in skill_dir, concatenated in order into the page's scene.js."""
     args = sys.argv[1:]
     if not args or args[0] in ('-h', '--help'):
         sys.exit(__doc__)
@@ -50,7 +51,8 @@ def build(skill_dir, defaults, check=None):
         shutil.copy(f, work / 'fonts' / f.name)
     shutil.copy(HERE / 'page.html', work / 'index.html')
     shutil.copy(HERE / 'lib.js', work / 'lib.js')
-    shutil.copy(Path(skill_dir) / 'scene.js', work / 'scene.js')
+    parts = scripts or ['scene.js']
+    (work / 'scene.js').write_text('\n;\n'.join((Path(skill_dir) / f).read_text() for f in parts))
     (work / 'spec.js').write_text('window.SPEC = ' + json.dumps(spec, ensure_ascii=False) + ';')
     render = [shutil.which('node'), str(HERE / 'render.mjs'), str(work)]
     if '--snap' in args or '--check' in args:

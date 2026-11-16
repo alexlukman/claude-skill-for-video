@@ -1,0 +1,2103 @@
+{
+ "categories": {
+  "A": "Traditional 2D",
+  "B": "Anime and Japanese-inspired",
+  "C": "Western cartoon",
+  "D": "3D",
+  "E": "Stop motion",
+  "F": "Motion graphics",
+  "G": "Experimental and artistic",
+  "H": "Pixel and retro digital",
+  "I": "Internet and social media",
+  "J": "Specialized"
+ },
+ "styles": [
+  {
+   "n": 1,
+   "slug": "traditional-hand-drawn",
+   "name": "Traditional Hand-Drawn",
+   "cat": "A",
+   "kind": "technique",
+   "look": "Hand-drawn lines that wobble slightly and vary in weight, soft painterly colour, paper grain, detailed painted backgrounds.",
+   "motion": "Full animation on 2s; every drawing slightly different (line boil), follow-through in hair and scarf.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "natural",
+    "charFill": "paint",
+    "bgFill": "paint",
+    "line": "boil",
+    "boil": 4,
+    "lineW": 4.5,
+    "fps": 12,
+    "brush": 18,
+    "post": [
+     "paper",
+     [
+      "grain",
+      0.03
+     ]
+    ],
+    "paintVar": 0.55
+   }
+  },
+  {
+   "n": 2,
+   "slug": "cel",
+   "name": "Cel Animation",
+   "cat": "A",
+   "kind": "technique",
+   "look": "Clean uniform outlines, flat opaque fills with one hard shadow tone, a crisp character layer over a softer painted background.",
+   "motion": "Smooth, consistent motion; no line boil.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "cel",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3.5,
+    "lineChar": true,
+    "fps": 24,
+    "post": [
+     [
+      "grain",
+      0.02
+     ]
+    ]
+   }
+  },
+  {
+   "n": 3,
+   "slug": "limited",
+   "name": "Limited Animation",
+   "cat": "A",
+   "kind": "technique",
+   "look": "Same clean cel drawing, simpler background, high contrast.",
+   "motion": "Few drawings (about 8 a second), held poses, short cycles, slow camera pans over still art.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "cel",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3.5,
+    "lineChar": true,
+    "fps": 8,
+    "post": [
+     [
+      "grain",
+      0.02
+     ]
+    ],
+    "holds": 1.5,
+    "speed": 90,
+    "panY": 120
+   }
+  },
+  {
+   "n": 4,
+   "slug": "rotoscope",
+   "name": "Rotoscope",
+   "cat": "A",
+   "kind": "technique",
+   "look": "Realistic proportions and grounded anatomy, painterly cel shading, real-place backgrounds.",
+   "motion": "Natural, weighty movement as if traced from footage.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "retro",
+    "proportions": "tall",
+    "charFill": "cel",
+    "shadow": 0.3,
+    "bgFill": "soft",
+    "line": "weighted",
+    "lineW": 2.6,
+    "fps": 24,
+    "post": [
+     [
+      "grain",
+      0.03
+     ]
+    ]
+   },
+   "note": "No live footage is used; the realistic motion is a hand-tuned walk/run cycle."
+  },
+  {
+   "n": 5,
+   "slug": "cutout",
+   "name": "Cutout Animation",
+   "cat": "A",
+   "kind": "technique",
+   "look": "Flat rigid pieces (head, torso, limbs) with card or paper texture and small drop shadows; bold flat colours, simple shapes.",
+   "motion": "Pieces rotate at joints, about 12 drawings a second, little squash.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "cartoon",
+    "fill": "paper",
+    "line": "none",
+    "fps": 12,
+    "proportions": "cartoon",
+    "eyes": "big"
+   }
+  },
+  {
+   "n": 6,
+   "slug": "anime-style",
+   "name": "Anime-Style Animation",
+   "cat": "B",
+   "kind": "look",
+   "look": "Pencil-and-colour anime: varied lineweight, detailed eyes with highlights, light cel shading, airy sky.",
+   "motion": "Fluid key poses, hair and ribbons trailing.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "pastel",
+    "fill": "wash",
+    "charFill": "cel",
+    "line": "sketch",
+    "lineW": 2.4,
+    "lineColor": "#3a3040",
+    "eyes": "big",
+    "highlight": true,
+    "fps": 24,
+    "post": [
+     "paper"
+    ]
+   }
+  },
+  {
+   "n": 7,
+   "slug": "digital-2d",
+   "name": "Digital 2D Animation",
+   "cat": "A",
+   "kind": "technique",
+   "look": "Clean digital lines, flat or gradient colour, polished painted backgrounds, soft glow.",
+   "motion": "Smooth keyframed or rigged motion.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "vivid",
+    "charFill": "cel",
+    "bgFill": "soft",
+    "line": "clean",
+    "lineW": 3,
+    "lineChar": true,
+    "eyes": "big",
+    "fps": 30,
+    "post": [
+     [
+      "bloom",
+      0.15
+     ]
+    ]
+   }
+  },
+  {
+   "n": 8,
+   "slug": "cel-traditional",
+   "name": "Cel Animation (Traditional)",
+   "cat": "A",
+   "kind": "technique",
+   "look": "Vintage cel: bold outlines, flat colours, hand-painted gouache backgrounds, film grain and soft vignette.",
+   "motion": "Smooth full animation on cels.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "retro",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3.5,
+    "lineChar": true,
+    "fps": 24,
+    "post": [
+     [
+      "grain",
+      0.05
+     ],
+     [
+      "vignette",
+      0.35
+     ]
+    ]
+   },
+   "alias": "cel"
+  },
+  {
+   "n": 9,
+   "slug": "stop-motion",
+   "name": "Stop Motion Animation",
+   "cat": "E",
+   "kind": "technique",
+   "look": "Real-looking physical models and sets, soft studio light, shallow depth of field.",
+   "motion": "Captured frame by frame (12 fps) with a slight wobble between frames.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "clay",
+    "fill": "soft",
+    "rim": true,
+    "fps": 12,
+    "jitter": 2.5,
+    "dof": 4,
+    "post": [
+     [
+      "vignette",
+      0.45
+     ],
+     [
+      "grain",
+      0.03
+     ]
+    ],
+    "spec": 0.5,
+    "shadow": 0.5
+   }
+  },
+  {
+   "n": 10,
+   "slug": "claymation",
+   "name": "Claymation",
+   "cat": "E",
+   "kind": "technique",
+   "look": "Plasticine figures with thumb marks, rounded forms, bead-like eyes, warm miniature set, macro blur.",
+   "motion": "On twos with a small wobble, like real stop motion.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "clay",
+    "fill": "clay",
+    "fps": 12,
+    "jitter": 3,
+    "dof": 5,
+    "proportions": "cartoon",
+    "post": [
+     [
+      "vignette",
+      0.5
+     ]
+    ],
+    "spec": 0.5,
+    "shadow": 0.5
+   },
+   "route": "looks (look: clay)"
+  },
+  {
+   "n": 11,
+   "slug": "puppet",
+   "name": "Puppet Animation",
+   "cat": "E",
+   "kind": "technique",
+   "look": "Articulated puppets in fabric and wood, rich materials, dramatic film-like lighting.",
+   "motion": "Stop motion on 12s with a slight jitter.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "retro",
+    "fill": "soft",
+    "rim": true,
+    "spec": 0.5,
+    "fps": 12,
+    "jitter": 1.6,
+    "dof": 4,
+    "post": [
+     "paper",
+     [
+      "vignette",
+      0.7
+     ],
+     [
+      "grain",
+      0.04
+     ]
+    ],
+    "shadow": 0.5
+   }
+  },
+  {
+   "n": 12,
+   "slug": "silhouette",
+   "name": "Silhouette Animation",
+   "cat": "A",
+   "kind": "look",
+   "look": "Solid black shapes with no inner lines against a glowing gradient sky.",
+   "motion": "Clear poses read through outline alone.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "sunset",
+    "fill": "silhouette",
+    "line": "none",
+    "fps": 24,
+    "post": [
+     [
+      "grain",
+      0.02
+     ]
+    ]
+   }
+  },
+  {
+   "n": 13,
+   "slug": "manga",
+   "name": "Manga Style",
+   "cat": "B",
+   "kind": "look",
+   "look": "Black and white ink, screentone dots for grey, speed lines, strong contrast.",
+   "motion": "Dramatic poses, panel-like framing.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "natural",
+    "mono": "ink",
+    "fill": "flat",
+    "line": "ink",
+    "lineW": 3.5,
+    "fps": 12,
+    "speedlines": true,
+    "post": [
+     "screentone"
+    ],
+    "monoCurve": 0.55,
+    "lineAfter": true,
+    "lineColor": "#0e0e0e",
+    "speedColor": "#111111",
+    "colors": {
+     "hair": "#141414",
+     "scarf": "#2a2a2a"
+    }
+   }
+  },
+  {
+   "n": 14,
+   "slug": "watercolor-anime",
+   "name": "Watercolor Anime",
+   "cat": "B",
+   "kind": "look",
+   "look": "Anime design in translucent watercolour washes, soft edges, pastel palette, paper grain.",
+   "motion": "Gentle keyframes; washes shimmer between drawings.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "pastel",
+    "fill": "wash",
+    "line": "sketch",
+    "lineW": 1.6,
+    "lineColor": "#5a4a3a",
+    "eyes": "big",
+    "fps": 12,
+    "post": [
+     "paper"
+    ]
+   }
+  },
+  {
+   "n": 15,
+   "slug": "anime-pixel",
+   "name": "Anime Pixel Art",
+   "cat": "B",
+   "kind": "look",
+   "look": "Anime design built from visible pixels, limited palette, stair-step contours.",
+   "motion": "Sprite-like stepped motion.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "vivid",
+    "charFill": "cel",
+    "bgFill": "flat",
+    "line": "clean",
+    "lineW": 3,
+    "eyes": "big",
+    "fps": 12,
+    "pixel": 9,
+    "levels": 5,
+    "post": [
+     "pixel"
+    ]
+   },
+   "route": "pixel-world"
+  },
+  {
+   "n": 16,
+   "slug": "anime-rotoscope",
+   "name": "Anime Rotoscope",
+   "cat": "B",
+   "kind": "technique",
+   "look": "Anime faces on realistic body proportions, cel or painterly colour.",
+   "motion": "Grounded live-action-like motion.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "natural",
+    "proportions": "tall",
+    "charFill": "cel",
+    "bgFill": "soft",
+    "line": "weighted",
+    "lineW": 2.6,
+    "eyes": "big",
+    "fps": 24
+   },
+   "note": "Motion is a tuned cycle, not traced footage."
+  },
+  {
+   "n": 17,
+   "slug": "classic-american",
+   "name": "Classic American Cartoon",
+   "cat": "C",
+   "kind": "look",
+   "look": "Golden-age theatrical cartoon: rubber-hose limbs, gloves, big shoes, round shapes, bold flat colour.",
+   "motion": "Bouncy squash and stretch, rhythmic run.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "cartoon",
+    "fill": "flat",
+    "line": "clean",
+    "lineW": 5,
+    "limbs": "tube",
+    "proportions": "cartoon",
+    "eyes": "big",
+    "fps": 12,
+    "post": [
+     [
+      "grain",
+      0.05
+     ]
+    ]
+   }
+  },
+  {
+   "n": 18,
+   "slug": "modern-tv",
+   "name": "Modern Television Cartoon",
+   "cat": "C",
+   "kind": "look",
+   "look": "Clean vector lines, simple shapes, flat colour, readable silhouettes.",
+   "motion": "Reusable cycles, controlled pose changes.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "vivid",
+    "fill": "flat",
+    "charFill": "cel",
+    "shadow": 0.12,
+    "line": "clean",
+    "lineW": 3.5,
+    "proportions": "cartoon",
+    "eyes": "big",
+    "fps": 12
+   }
+  },
+  {
+   "n": 19,
+   "slug": "limited-tv",
+   "name": "Limited Animation (TV)",
+   "cat": "A",
+   "kind": "technique",
+   "look": "TV anime cel art with muted palette.",
+   "motion": "Even fewer drawings (6 fps), long holds.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "retro",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3.5,
+    "lineChar": true,
+    "fps": 6,
+    "post": [
+     [
+      "grain",
+      0.02
+     ]
+    ],
+    "holds": 2,
+    "speed": 80,
+    "panY": 90
+   },
+   "alias": "limited"
+  },
+  {
+   "n": 20,
+   "slug": "full-animation",
+   "name": "Full Animation",
+   "cat": "A",
+   "kind": "technique",
+   "look": "Rich cel art with detailed movement.",
+   "motion": "Every frame drawn (30 fps), smooth arcs, speed lines on fast action.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "natural",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "weighted",
+    "lineW": 3,
+    "lineChar": true,
+    "fps": 30,
+    "speedlines": true
+   }
+  },
+  {
+   "n": 21,
+   "slug": "digital-cutout",
+   "name": "Cutout Animation (Digital)",
+   "cat": "A",
+   "kind": "technique",
+   "look": "Digital cutout: clean flat pieces, no texture.",
+   "motion": "Pieces rotate at joints on 12s.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "cartoon",
+    "fill": "flat",
+    "line": "clean",
+    "lineW": 4,
+    "fps": 12,
+    "proportions": "cartoon",
+    "eyes": "big"
+   },
+   "alias": "cutout"
+  },
+  {
+   "n": 22,
+   "slug": "silhouette-sunset",
+   "name": "Silhouette Animation (Sunset)",
+   "cat": "A",
+   "kind": "look",
+   "look": "Black silhouette against an orange sunset.",
+   "motion": "Fluid pose-driven motion.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "sunset",
+    "fill": "silhouette",
+    "line": "none",
+    "colors": {
+     "sky": "#e8642a",
+     "sky2": "#ffc04a"
+    }
+   },
+   "alias": "silhouette"
+  },
+  {
+   "n": 23,
+   "slug": "stick-figure",
+   "name": "Stick Figure Animation",
+   "cat": "I",
+   "kind": "look",
+   "look": "Lines and a circle on paper, one accent colour.",
+   "motion": "Clear, dynamic poses.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "stick"
+   },
+   "route": "stick-figure"
+  },
+  {
+   "n": 24,
+   "slug": "flipbook",
+   "name": "Flipbook Animation",
+   "cat": "A",
+   "kind": "format",
+   "look": "Pencil drawings on the pages of a small book.",
+   "motion": "Drawings flip at 12 per second; the page corner lifts.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "natural",
+    "fill": "white",
+    "line": "sketch",
+    "lineW": 2.2,
+    "lineColor": "#555555",
+    "fps": 12,
+    "foreground": false,
+    "overlay": "flipbook"
+   }
+  },
+  {
+   "n": 25,
+   "slug": "stylized-3d",
+   "name": "Stylized 3D",
+   "cat": "D",
+   "kind": "look",
+   "look": "3D-looking forms with soft gradients, rim light, appealing exaggerated proportions.",
+   "motion": "Smooth, appealing motion.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "vivid",
+    "fill": "soft",
+    "rim": true,
+    "spec": 0.5,
+    "proportions": "cartoon",
+    "eyes": "big",
+    "fps": 30,
+    "dof": 3,
+    "post": [
+     [
+      "bloom",
+      0.18
+     ]
+    ],
+    "shadow": 0.5
+   },
+   "note": "Drawn in 2D to look 3D; for real 3D use /cartoon-3d."
+  },
+  {
+   "n": 26,
+   "slug": "photorealistic",
+   "name": "Photorealistic CGI",
+   "cat": "D",
+   "kind": "look",
+   "look": "Aims at photographic realism.",
+   "motion": "Natural physically plausible motion.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "natural",
+    "fill": "soft",
+    "spec": 0.15,
+    "desat": 0.15,
+    "proportions": "tall",
+    "fps": 30,
+    "dof": 7,
+    "post": [
+     [
+      "grain",
+      0.04
+     ],
+     [
+      "vignette",
+      0.4
+     ]
+    ]
+   },
+   "note": "Not achievable in this 2D engine: this is the closest soft-shaded cinematic look."
+  },
+  {
+   "n": 27,
+   "slug": "low-poly",
+   "name": "Low Poly Animation",
+   "cat": "D",
+   "kind": "look",
+   "look": "Faceted triangles with flat shading, angular silhouettes.",
+   "motion": "Smooth motion over simple geometry.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "lowpoly",
+    "fill": "lowpoly",
+    "line": "none",
+    "fps": 30
+   }
+  },
+  {
+   "n": 28,
+   "slug": "cel-shaded-3d",
+   "name": "Cel-Shaded 3D",
+   "cat": "D",
+   "kind": "look",
+   "look": "3D forms with two-tone hard shading and bold toon outlines.",
+   "motion": "3D-like turns with a flat drawn look.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "vivid",
+    "charFill": "cel",
+    "shadow": 0.3,
+    "bgFill": "soft",
+    "line": "clean",
+    "lineW": 5,
+    "lineChar": true,
+    "eyes": "big",
+    "fps": 30
+   }
+  },
+  {
+   "n": 29,
+   "slug": "voxel",
+   "name": "Voxel Animation",
+   "cat": "D",
+   "kind": "look",
+   "look": "Everything built from cubes; blocky, grid-aligned forms.",
+   "motion": "Blocky stepped movement.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "voxel",
+    "fill": "soft",
+    "spec": 0.2,
+    "line": "none",
+    "fps": 15,
+    "pixel": 16,
+    "levels": 8,
+    "post": [
+     "pixel"
+    ]
+   }
+  },
+  {
+   "n": 30,
+   "slug": "isometric-3d",
+   "name": "Isometric 3D",
+   "cat": "D",
+   "kind": "look",
+   "look": "Angled top-down view with no perspective, clean diorama.",
+   "motion": "Diagonal grid movement.",
+   "source": "sheet",
+   "recipe": {},
+   "route": "isometric"
+  },
+  {
+   "n": 31,
+   "slug": "digital-clay",
+   "name": "Digital Clay",
+   "cat": "D",
+   "kind": "look",
+   "look": "Clay-like rounded forms with fingerprints, made digitally.",
+   "motion": "Smooth (not stepped) clay-like motion.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "clay",
+    "fill": "clay",
+    "fps": 30,
+    "dof": 3,
+    "proportions": "cartoon",
+    "spec": 0.5,
+    "shadow": 0.5
+   }
+  },
+  {
+   "n": 32,
+   "slug": "2-5d",
+   "name": "2.5D Animation",
+   "cat": "D",
+   "kind": "look",
+   "look": "Flat 2D art arranged in deep layers.",
+   "motion": "Camera moves through the layers with strong parallax and a slow push.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "pastel",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3,
+    "lineChar": true,
+    "speed": 360,
+    "dof": 2,
+    "push": 0.08,
+    "fps": 24
+   }
+  },
+  {
+   "n": 33,
+   "slug": "claymation-2",
+   "name": "Claymation",
+   "cat": "E",
+   "kind": "technique",
+   "look": "See Claymation.",
+   "motion": "",
+   "source": "sheet",
+   "recipe": {},
+   "alias": "claymation"
+  },
+  {
+   "n": 34,
+   "slug": "puppet-2",
+   "name": "Puppet Animation",
+   "cat": "E",
+   "kind": "technique",
+   "look": "See Puppet Animation.",
+   "motion": "",
+   "source": "sheet",
+   "recipe": {},
+   "alias": "puppet"
+  },
+  {
+   "n": 35,
+   "slug": "paper-cutout-stop-motion",
+   "name": "Paper Cutout Stop Motion",
+   "cat": "E",
+   "kind": "technique",
+   "look": "Torn and cut paper with fibre texture and drop shadows, layered sets.",
+   "motion": "On twos with a small jitter each step.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "craft",
+    "fill": "paper",
+    "line": "none",
+    "fps": 12,
+    "jitter": 2.5
+   },
+   "route": "looks (look: paper)"
+  },
+  {
+   "n": 36,
+   "slug": "brick-toy",
+   "name": "Brick Toy Animation",
+   "cat": "E",
+   "kind": "technique",
+   "look": "Glossy plastic toy bricks and blocky figures, bright primaries.",
+   "motion": "Stepped stop-motion on 12s.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "brick",
+    "fill": "soft",
+    "spec": 0.5,
+    "hair": "block",
+    "proportions": "cartoon",
+    "eyes": "dot",
+    "fps": 12,
+    "jitter": 1,
+    "shadow": 0.5
+   },
+   "note": "A generic toy-brick look; no brand names, logos or official figures."
+  },
+  {
+   "n": 37,
+   "slug": "pixilation",
+   "name": "Pixilation",
+   "cat": "E",
+   "kind": "technique",
+   "look": "Real people photographed pose by pose.",
+   "motion": "Jerky, stepped, sometimes impossible movement.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "natural",
+    "fill": "soft",
+    "spec": 0.1,
+    "desat": 0.1,
+    "proportions": "tall",
+    "fps": 8,
+    "jitter": 5,
+    "post": [
+     [
+      "grain",
+      0.05
+     ]
+    ]
+   },
+   "note": "Uses an illustrated figure, not real performers; the stepped timing is the imitated part."
+  },
+  {
+   "n": 38,
+   "slug": "sand",
+   "name": "Sand Animation",
+   "cat": "E",
+   "kind": "technique",
+   "look": "Grains of sand on a lightbox, warm backlight, soft grainy shapes.",
+   "motion": "Images are swept and redrawn into new shapes.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "sand"
+   }
+  },
+  {
+   "n": 39,
+   "slug": "paint-on-glass",
+   "name": "Paint-on-Glass Animation",
+   "cat": "E",
+   "kind": "technique",
+   "look": "Thick wet paint with visible brushstrokes, glowing colours.",
+   "motion": "Shapes are repainted every frame and flow into each other.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "vivid",
+    "fill": "paint",
+    "brush": 46,
+    "paintSky": true,
+    "boilPaint": true,
+    "line": "none",
+    "fps": 12,
+    "post": [
+     "smudge",
+     [
+      "bloom",
+      0.2
+     ]
+    ],
+    "paintAlpha": 0.75,
+    "paintVar": 0.8
+   }
+  },
+  {
+   "n": 40,
+   "slug": "object",
+   "name": "Object Animation",
+   "cat": "E",
+   "kind": "technique",
+   "look": "Everyday objects on a real-looking set.",
+   "motion": "An object comes alive on twos.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "object"
+   }
+  },
+  {
+   "n": 41,
+   "slug": "motion-graphics",
+   "name": "Motion Graphics",
+   "cat": "F",
+   "kind": "graphic",
+   "look": "Flat design shapes, icons and interface cards in bold colour.",
+   "motion": "Pops, slides, scales and rotations with easing.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "mograph"
+   }
+  },
+  {
+   "n": 42,
+   "slug": "kinetic-typography",
+   "name": "Kinetic Typography",
+   "cat": "F",
+   "kind": "graphic",
+   "look": "Text is the subject: bold type, strong colour.",
+   "motion": "Words fly, rotate and scale in rhythm.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "type"
+   }
+  },
+  {
+   "n": 43,
+   "slug": "infographic",
+   "name": "Infographic Animation",
+   "cat": "F",
+   "kind": "graphic",
+   "look": "Charts, icons and numbers in a clean layout.",
+   "motion": "Bars grow, numbers count up, a donut fills.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "infographic"
+   },
+   "route": "coin-chart / graph also fit"
+  },
+  {
+   "n": 44,
+   "slug": "logo",
+   "name": "Logo Animation",
+   "cat": "F",
+   "kind": "graphic",
+   "look": "A brand mark and wordmark on a dark backdrop.",
+   "motion": "The mark builds, a light sweeps, the name fades in.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "logo"
+   }
+  },
+  {
+   "n": 45,
+   "slug": "whiteboard",
+   "name": "Whiteboard Animation",
+   "cat": "F",
+   "kind": "format",
+   "look": "Black marker lines on white, simple drawings, a hand with a pen.",
+   "motion": "Drawings appear stroke by stroke.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "whiteboard"
+   },
+   "route": "chalkboard is a related look"
+  },
+  {
+   "n": 46,
+   "slug": "hud",
+   "name": "HUD Animation",
+   "cat": "F",
+   "kind": "graphic",
+   "look": "Cyan interface rings, grids, reticles and labels on dark.",
+   "motion": "Scanning sweeps, rotating rings, pulsing indicators.",
+   "source": "sheet",
+   "recipe": {},
+   "route": "hologram-hud"
+  },
+  {
+   "n": 47,
+   "slug": "liquid",
+   "name": "Liquid Motion",
+   "cat": "F",
+   "kind": "graphic",
+   "look": "Glossy coloured blobs on a dark backdrop.",
+   "motion": "Shapes stretch, merge and split like liquid.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "liquid"
+   }
+  },
+  {
+   "n": 48,
+   "slug": "geometric",
+   "name": "Geometric Animation",
+   "cat": "F",
+   "kind": "graphic",
+   "look": "Squares, circles and triangles in a grid, a few strong colours.",
+   "motion": "Rotate, scale and swap in a wave.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "geometric"
+   }
+  },
+  {
+   "n": 49,
+   "slug": "rotoscope-2",
+   "name": "Rotoscope",
+   "cat": "G",
+   "kind": "technique",
+   "look": "See Rotoscope.",
+   "motion": "",
+   "source": "sheet",
+   "recipe": {},
+   "alias": "rotoscope"
+  },
+  {
+   "n": 50,
+   "slug": "mixed-media",
+   "name": "Mixed Media Animation",
+   "cat": "G",
+   "kind": "look",
+   "look": "Drawing combined with torn paper, halftone photo scraps and tape.",
+   "motion": "Animated figure inside a moving collage.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "retro",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3,
+    "lineChar": true,
+    "fps": 12,
+    "overlay": "collage",
+    "post": [
+     "paper"
+    ]
+   }
+  },
+  {
+   "n": 51,
+   "slug": "surreal",
+   "name": "Surreal Animation",
+   "cat": "G",
+   "kind": "look",
+   "look": "Dreamlike sky with floating islands, stairs to nowhere and a drooping clock.",
+   "motion": "Impossible things drift and bend.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "pastel",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3,
+    "lineChar": true,
+    "colors": {
+     "sky": "#b89ae8",
+     "sky2": "#ffd0e0"
+    },
+    "overlay": "surreal",
+    "fps": 24
+   }
+  },
+  {
+   "n": 52,
+   "slug": "abstract",
+   "name": "Abstract Animation",
+   "cat": "G",
+   "kind": "look",
+   "look": "Pure shapes, lines and colour fields, no figures.",
+   "motion": "Pulses and rotations to a rhythm.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "abstract"
+   }
+  },
+  {
+   "n": 53,
+   "slug": "glitch",
+   "name": "Glitch Animation",
+   "cat": "G",
+   "kind": "look",
+   "look": "Digital corruption: RGB split, displaced blocks, tearing.",
+   "motion": "Calm frames broken by bursts of glitch.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "neon",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3.5,
+    "lineChar": true,
+    "fps": 24,
+    "post": [
+     "glitch"
+    ]
+   }
+  },
+  {
+   "n": 54,
+   "slug": "psychedelic",
+   "name": "Psychedelic Animation",
+   "cat": "G",
+   "kind": "look",
+   "look": "Saturated swirling colour, patterns everywhere.",
+   "motion": "Colours cycle and patterns spin continuously.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "vivid",
+    "fill": "flat",
+    "line": "clean",
+    "lineW": 3,
+    "fps": 24,
+    "overlay": "psychedelic",
+    "post": [
+     "hue"
+    ]
+   }
+  },
+  {
+   "n": 55,
+   "slug": "ink",
+   "name": "Ink Animation",
+   "cat": "G",
+   "kind": "look",
+   "look": "Sumi-e ink: bold black brush contours, grey washes, a red accent.",
+   "motion": "Flowing strokes that settle.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "natural",
+    "mono": "ink",
+    "monoCurve": 1.6,
+    "fill": "wash",
+    "line": "ink",
+    "lineW": 4.5,
+    "fps": 12,
+    "keep": [
+     "sun",
+     "scarf"
+    ],
+    "post": [
+     "paper"
+    ]
+   }
+  },
+  {
+   "n": 56,
+   "slug": "charcoal",
+   "name": "Charcoal Animation",
+   "cat": "G",
+   "kind": "look",
+   "look": "Charcoal on paper: dark smudged tones, rough grainy lines.",
+   "motion": "Contours shift and smudge between drawings.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "natural",
+    "mono": "charcoal",
+    "monoCurve": 1.3,
+    "fill": "soft",
+    "line": "charcoal",
+    "lineW": 3,
+    "fps": 12,
+    "post": [
+     "smudge",
+     "paper",
+     [
+      "grain",
+      0.07
+     ]
+    ]
+   }
+  },
+  {
+   "n": 57,
+   "slug": "8-bit",
+   "name": "8-Bit Pixel Art",
+   "cat": "H",
+   "kind": "look",
+   "look": "Large pixels, tiny palette, simple sprites.",
+   "motion": "Short stepped sprite cycles.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "cartoon",
+    "fill": "flat",
+    "line": "clean",
+    "lineW": 4,
+    "fps": 8,
+    "pixel": 15,
+    "levels": 3,
+    "post": [
+     "pixel"
+    ]
+   },
+   "route": "pixel-world"
+  },
+  {
+   "n": 58,
+   "slug": "16-bit",
+   "name": "16-Bit Pixel Art",
+   "cat": "H",
+   "kind": "look",
+   "look": "Finer pixels, richer palette, dithered shading.",
+   "motion": "Detailed sprite animation.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "vivid",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3,
+    "fps": 12,
+    "pixel": 8,
+    "levels": 6,
+    "dither": 0.6,
+    "post": [
+     "pixel"
+    ]
+   },
+   "route": "pixel-world"
+  },
+  {
+   "n": 59,
+   "slug": "hi-res-pixel",
+   "name": "High-Resolution Pixel Art",
+   "cat": "H",
+   "kind": "look",
+   "look": "Many small pixels, careful shading, rich palette.",
+   "motion": "Smooth detailed sprite motion.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "natural",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 2.5,
+    "eyes": "big",
+    "fps": 15,
+    "pixel": 4,
+    "levels": 10,
+    "dither": 0.3,
+    "post": [
+     "pixel"
+    ]
+   }
+  },
+  {
+   "n": 60,
+   "slug": "vhs",
+   "name": "VHS Animation",
+   "cat": "H",
+   "kind": "look",
+   "look": "Soft analogue video: colour bleed, scan lines, tracking noise, on-screen date.",
+   "motion": "Normal animation with tape wobble and glitches.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "retro",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3.5,
+    "lineChar": true,
+    "fps": 24,
+    "post": [
+     "vhs"
+    ]
+   }
+  },
+  {
+   "n": 61,
+   "slug": "retro-cgi",
+   "name": "Retro CGI",
+   "cat": "H",
+   "kind": "look",
+   "look": "Early 3D: low-poly faceted models, low-resolution textures, flat lighting.",
+   "motion": "Smooth but stiff.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "lowpoly",
+    "fill": "lowpoly",
+    "line": "none",
+    "desat": 0.1,
+    "fps": 20,
+    "pixel": 4,
+    "levels": 12,
+    "post": [
+     "pixel"
+    ]
+   }
+  },
+  {
+   "n": 62,
+   "slug": "dither",
+   "name": "Dither Animation",
+   "cat": "H",
+   "kind": "look",
+   "look": "Patterned pixels (checkerboard/Bayer) standing in for gradients, limited palette.",
+   "motion": "Stepped pixel motion.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "sunset",
+    "fill": "soft",
+    "line": "none",
+    "fps": 12,
+    "pixel": 5,
+    "levels": 3,
+    "dither": 1.0,
+    "colors": {
+     "sky": "#5a3a8a",
+     "sky2": "#f08aa8"
+    },
+    "post": [
+     "pixel"
+    ]
+   }
+  },
+  {
+   "n": 63,
+   "slug": "stickman",
+   "name": "Stickman Animation",
+   "cat": "I",
+   "kind": "look",
+   "look": "See Stick Figure.",
+   "motion": "",
+   "source": "sheet",
+   "recipe": {
+    "subject": "stick"
+   },
+   "route": "stick-figure",
+   "alias": "stick-figure"
+  },
+  {
+   "n": 64,
+   "slug": "doodle",
+   "name": "Doodle Animation",
+   "cat": "I",
+   "kind": "look",
+   "look": "Ballpoint and marker doodles on ruled notebook paper.",
+   "motion": "Wobbly lines that re-draw a few times a second.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "natural",
+    "fill": "white",
+    "paper": "#fbf8ef",
+    "line": "marker",
+    "lineW": 3,
+    "lineColor": "#1f3f9a",
+    "fps": 8,
+    "foreground": false,
+    "overlay": "notebook"
+   }
+  },
+  {
+   "n": 65,
+   "slug": "faceless",
+   "name": "Faceless Storytelling",
+   "cat": "I",
+   "kind": "format",
+   "look": "Characters without faces; mood from silhouette, colour and setting.",
+   "motion": "Body language carries the story.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "sunset",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3.5,
+    "lineChar": true,
+    "fps": 24,
+    "post": [
+     [
+      "grain",
+      0.02
+     ]
+    ],
+    "eyes": "none",
+    "gait": "walk",
+    "speed": 140
+   }
+  },
+  {
+   "n": 66,
+   "slug": "comic-book",
+   "name": "Comic Book Animation",
+   "cat": "I",
+   "kind": "look",
+   "look": "Bold inks, halftone dots, flat bright colour, speed lines.",
+   "motion": "Punchy poses and impact.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "cartoon",
+    "charFill": "cel",
+    "bgFill": "flat",
+    "line": "ink",
+    "lineW": 4,
+    "speedlines": true,
+    "fps": 12,
+    "post": [
+     "halftone"
+    ],
+    "lineAfter": true
+   }
+  },
+  {
+   "n": 67,
+   "slug": "motion-comic",
+   "name": "Motion Comic",
+   "cat": "I",
+   "kind": "format",
+   "look": "Comic panels with inked borders, captions and speech bubbles.",
+   "motion": "Pans and zooms inside panels, small movements.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "cartoon",
+    "charFill": "cel",
+    "bgFill": "flat",
+    "line": "ink",
+    "lineW": 4,
+    "fps": 12,
+    "overlay": "panels",
+    "post": [
+     "halftone"
+    ],
+    "lineAfter": true
+   }
+  },
+  {
+   "n": 68,
+   "slug": "documentary",
+   "name": "Documentary Animation",
+   "cat": "I",
+   "kind": "format",
+   "look": "Archival look: sepia map, routes, dates.",
+   "motion": "A region spreads, a route draws, captions appear.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "documentary"
+   }
+  },
+  {
+   "n": 69,
+   "slug": "game-based",
+   "name": "Game-Based Animation",
+   "cat": "I",
+   "kind": "format",
+   "look": "A game scene with health bar, minimap and quest text.",
+   "motion": "Gameplay-style run with HUD updates.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "vivid",
+    "fill": "soft",
+    "rim": true,
+    "eyes": "big",
+    "fps": 30,
+    "overlay": "gamehud"
+   }
+  },
+  {
+   "n": 70,
+   "slug": "meme",
+   "name": "Meme Animation",
+   "cat": "I",
+   "kind": "format",
+   "look": "Impact-style caption text, hard zooms, an original reaction.",
+   "motion": "Sudden punch-ins and shakes.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "cel",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3.5,
+    "lineChar": true,
+    "fps": 24,
+    "post": [
+     [
+      "grain",
+      0.02
+     ]
+    ],
+    "overlay": "meme"
+   },
+   "note": "Original reactions only; no existing meme characters."
+  },
+  {
+   "n": 71,
+   "slug": "ai-generated",
+   "name": "AI-Generated Animation",
+   "cat": "I",
+   "kind": "technique",
+   "look": "Painterly, glossy, slightly unstable detail.",
+   "motion": "Details shimmer and drift between frames (temporal instability).",
+   "source": "sheet",
+   "recipe": {
+    "palette": "vivid",
+    "fill": "paint",
+    "brush": 26,
+    "boilPaint": true,
+    "boilFill": 3,
+    "line": "none",
+    "eyes": "big",
+    "fps": 24,
+    "post": [
+     [
+      "bloom",
+      0.25
+     ]
+    ]
+   },
+   "note": "Imitates the look; nothing is AI-generated."
+  },
+  {
+   "n": 72,
+   "slug": "parallax",
+   "name": "Parallax Storytelling",
+   "cat": "I",
+   "kind": "technique",
+   "look": "Layered illustrated scenery, soft depth.",
+   "motion": "Near layers move fast, far layers slow.",
+   "source": "sheet",
+   "recipe": {
+    "palette": "pastel",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3,
+    "lineChar": true,
+    "speed": 380,
+    "dof": 2.5,
+    "fps": 24
+   }
+  },
+  {
+   "n": 73,
+   "slug": "motion-capture",
+   "name": "Motion Capture",
+   "cat": "J",
+   "kind": "technology",
+   "look": "A marker suit on a capture stage next to the digital rig it drives.",
+   "motion": "Recorded-looking natural motion transferred to the rig.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "mocap"
+   },
+   "note": "A simulated capture; no real data."
+  },
+  {
+   "n": 74,
+   "slug": "performance-capture",
+   "name": "Performance Capture",
+   "cat": "J",
+   "kind": "technology",
+   "look": "Body and face markers driving a digital character.",
+   "motion": "Face points move with the performance.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "mocap",
+    "face": true
+   },
+   "note": "A simulated capture; no real data."
+  },
+  {
+   "n": 75,
+   "slug": "procedural",
+   "name": "Procedural Animation",
+   "cat": "J",
+   "kind": "technique",
+   "look": "A flock at sunset.",
+   "motion": "Motion comes from rules (cohesion, swirl, noise), not keyframes.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "flock"
+   }
+  },
+  {
+   "n": 76,
+   "slug": "physics",
+   "name": "Physics-Based Animation",
+   "cat": "J",
+   "kind": "technique",
+   "look": "Simple cubes on a grid floor.",
+   "motion": "Gravity, bounce and friction are simulated.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "physics"
+   }
+  },
+  {
+   "n": 77,
+   "slug": "skeletal",
+   "name": "Skeletal Animation",
+   "cat": "J",
+   "kind": "technique",
+   "look": "The character with its bone rig shown on top.",
+   "motion": "Joints rotate in a hierarchy (FK).",
+   "source": "sheet",
+   "recipe": {
+    "palette": "cel",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3.5,
+    "lineChar": true,
+    "fps": 24,
+    "post": [
+     [
+      "grain",
+      0.02
+     ]
+    ],
+    "overlay": "bones"
+   }
+  },
+  {
+   "n": 78,
+   "slug": "morph",
+   "name": "Morph Animation",
+   "cat": "J",
+   "kind": "technique",
+   "look": "A head silhouette and a wolf's.",
+   "motion": "One outline interpolates smoothly into the other.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "morph"
+   }
+  },
+  {
+   "n": 79,
+   "slug": "particles",
+   "name": "Particle Animation",
+   "cat": "J",
+   "kind": "technique",
+   "look": "Thousands of glowing sparks.",
+   "motion": "Particles swirl, gather into a figure and stream away.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "particles"
+   }
+  },
+  {
+   "n": 80,
+   "slug": "fluid",
+   "name": "Fluid Simulation",
+   "cat": "J",
+   "kind": "technique",
+   "look": "Ocean waves at sunset with foam and spray.",
+   "motion": "A wave builds and breaks.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "wave"
+   },
+   "note": "A stylised wave, not a real fluid solver."
+  },
+  {
+   "n": 81,
+   "slug": "mechanical",
+   "name": "Mechanical Animation",
+   "cat": "J",
+   "kind": "visualization",
+   "look": "Metal gears, a crank and a piston.",
+   "motion": "Gears mesh at matched speeds and drive the piston.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "gears"
+   },
+   "route": "blueprint / breakdown also fit"
+  },
+  {
+   "n": 82,
+   "slug": "architectural",
+   "name": "Architectural Animation",
+   "cat": "J",
+   "kind": "visualization",
+   "look": "A glass house at dusk with warm interior light.",
+   "motion": "A slow camera dolly past the building.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "architecture"
+   }
+  },
+  {
+   "n": 83,
+   "slug": "medical",
+   "name": "Medical Animation",
+   "cat": "J",
+   "kind": "visualization",
+   "look": "A stylised heart, vessels and blood cells with labels.",
+   "motion": "The heart beats; cells flow; an ECG line runs.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "heart"
+   },
+   "note": "Simplified and illustrative, not medical advice."
+  },
+  {
+   "n": 84,
+   "slug": "scientific",
+   "name": "Scientific Animation",
+   "cat": "J",
+   "kind": "visualization",
+   "look": "A bar magnet with field lines in space.",
+   "motion": "Field lines draw in; a compass follows them.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "science"
+   }
+  },
+  {
+   "n": 85,
+   "slug": "vr",
+   "name": "VR Animation",
+   "cat": "J",
+   "kind": "technology",
+   "look": "The scene as two headset lens views.",
+   "motion": "Viewer-centred stereo view.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "vr",
+    "palette": "vivid",
+    "fill": "soft",
+    "eyes": "big"
+   },
+   "note": "A flat video can only show what VR looks like; it is not an immersive VR experience."
+  },
+  {
+   "n": 86,
+   "slug": "ar",
+   "name": "AR Animation",
+   "cat": "J",
+   "kind": "technology",
+   "look": "A phone over a real desk shows the character standing on the table.",
+   "motion": "Placement ring appears, the character pops in.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "ar",
+    "palette": "natural"
+   },
+   "note": "A simulated AR view inside a video."
+  },
+  {
+   "n": 87,
+   "slug": "real-time",
+   "name": "Real-Time Animation",
+   "cat": "J",
+   "kind": "technology",
+   "look": "The scene inside a game-engine editor with an FPS counter.",
+   "motion": "Live playback with gizmos.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "realtime",
+    "palette": "vivid",
+    "fill": "soft",
+    "eyes": "big"
+   },
+   "note": "A pre-rendered video that shows the look of a real-time editor."
+  },
+  {
+   "n": 88,
+   "slug": "projection-mapping",
+   "name": "Projection Mapping",
+   "cat": "J",
+   "kind": "technology",
+   "look": "Coloured light mapped onto a building facade at night, crowd in front.",
+   "motion": "Bands of light flow; a whale swims across the facade.",
+   "source": "sheet",
+   "recipe": {
+    "subject": "projection"
+   },
+   "note": "A simulated projection on a drawn building."
+  },
+  {
+   "n": 89,
+   "slug": "frame-by-frame",
+   "name": "Frame-by-Frame Animation",
+   "cat": "A",
+   "kind": "technique",
+   "look": "Each frame drawn separately; organic shape changes.",
+   "motion": "Line boil and loose drawing on 12s.",
+   "source": "guide",
+   "recipe": {
+    "palette": "natural",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "boil",
+    "boil": 3.5,
+    "boilFill": 2,
+    "lineW": 3,
+    "fps": 12,
+    "post": [
+     "paper"
+    ]
+   }
+  },
+  {
+   "n": 90,
+   "slug": "sketch",
+   "name": "Sketch Animation",
+   "cat": "A",
+   "kind": "look",
+   "look": "Rough pencil construction lines, little colour.",
+   "motion": "Loose redrawn strokes.",
+   "source": "guide",
+   "recipe": {
+    "fill": "white",
+    "paper": "#f8f5ee",
+    "line": "sketch",
+    "lineW": 2.6,
+    "lineColor": "#3a3a3a",
+    "fps": 8,
+    "foreground": false,
+    "post": [
+     "paper",
+     [
+      "grain",
+      0.04
+     ]
+    ]
+   }
+  },
+  {
+   "n": 91,
+   "slug": "rubber-hose",
+   "name": "Rubber Hose Animation",
+   "cat": "C",
+   "kind": "look",
+   "look": "Black and white 1930s cartoon: tube limbs, white gloves, film scratches.",
+   "motion": "Bouncy rhythmic loop.",
+   "source": "guide",
+   "recipe": {
+    "palette": "cartoon",
+    "mono": "ink",
+    "monoCurve": 0.9,
+    "fill": "flat",
+    "line": "clean",
+    "lineW": 5,
+    "limbs": "tube",
+    "proportions": "cartoon",
+    "eyes": "big",
+    "fps": 12,
+    "post": [
+     [
+      "grain",
+      0.08
+     ],
+     [
+      "vignette",
+      0.6
+     ]
+    ]
+   }
+  },
+  {
+   "n": 92,
+   "slug": "traditional-anime",
+   "name": "Traditional Anime",
+   "cat": "B",
+   "kind": "look",
+   "look": "Clean anime cel art, big expressive eyes, detailed sky.",
+   "motion": "Mix of held poses and fluid action.",
+   "source": "guide",
+   "recipe": {
+    "palette": "natural",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3.5,
+    "lineChar": true,
+    "fps": 24,
+    "post": [
+     [
+      "grain",
+      0.02
+     ]
+    ],
+    "eyes": "big",
+    "highlight": true
+   }
+  },
+  {
+   "n": 93,
+   "slug": "90s-anime",
+   "name": "90s Retro Anime",
+   "cat": "B",
+   "kind": "look",
+   "look": "Cel-era anime: muted palette, film grain, soft glow, hand-drawn lines.",
+   "motion": "Strong key poses, dramatic framing.",
+   "source": "guide",
+   "recipe": {
+    "palette": "retro",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "clean",
+    "lineW": 3.5,
+    "lineChar": true,
+    "fps": 24,
+    "post": [
+     [
+      "grain",
+      0.06
+     ],
+     [
+      "bloom",
+      0.12
+     ],
+     [
+      "vignette",
+      0.4
+     ]
+    ],
+    "eyes": "big"
+   }
+  },
+  {
+   "n": 94,
+   "slug": "sakuga",
+   "name": "Sakuga",
+   "cat": "B",
+   "kind": "technique",
+   "look": "High-energy anime action drawing.",
+   "motion": "Every frame drawn, smears and speed lines, camera push.",
+   "source": "guide",
+   "recipe": {
+    "palette": "vivid",
+    "charFill": "cel",
+    "bgFill": "paint",
+    "line": "weighted",
+    "lineW": 3.5,
+    "eyes": "big",
+    "fps": 30,
+    "speedlines": true,
+    "push": 0.12,
+    "speed": 420
+   }
+  },
+  {
+   "n": 95,
+   "slug": "chibi",
+   "name": "Chibi Animation",
+   "cat": "B",
+   "kind": "look",
+   "look": "Oversized head, tiny body, huge eyes.",
+   "motion": "Bouncy comedic motion.",
+   "source": "guide",
+   "recipe": {
+    "palette": "pastel",
+    "charFill": "cel",
+    "bgFill": "soft",
+    "line": "clean",
+    "lineW": 4,
+    "proportions": "chibi",
+    "eyes": "big",
+    "fps": 12
+   }
+  },
+  {
+   "n": 96,
+   "slug": "adult-sitcom",
+   "name": "Adult Sitcom Cartoon",
+   "cat": "C",
+   "kind": "format",
+   "look": "Flat colours, simple dot eyes, everyday setting.",
+   "motion": "Limited: holds, mouth flaps, walk cycles.",
+   "source": "guide",
+   "recipe": {
+    "palette": "vivid",
+    "fill": "flat",
+    "line": "clean",
+    "lineW": 4,
+    "eyes": "dot",
+    "gait": "walk",
+    "fps": 12,
+    "holds": 1.5,
+    "speed": 120
+   }
+  },
+  {
+   "n": 97,
+   "slug": "exaggerated",
+   "name": "Exaggerated Cartoon",
+   "cat": "C",
+   "kind": "look",
+   "look": "Wild proportions, extreme squash and stretch.",
+   "motion": "Fast, elastic, over the top.",
+   "source": "guide",
+   "recipe": {
+    "palette": "cartoon",
+    "fill": "flat",
+    "charFill": "cel",
+    "line": "clean",
+    "lineW": 5,
+    "limbs": "tube",
+    "proportions": "chibi",
+    "eyes": "big",
+    "speed": 520,
+    "speedlines": true,
+    "fps": 24
+   }
+  },
+  {
+   "n": 98,
+   "slug": "minimalist",
+   "name": "Minimalist Cartoon",
+   "cat": "C",
+   "kind": "look",
+   "look": "Very few shapes and colours, lots of space.",
+   "motion": "Economical motion.",
+   "source": "guide",
+   "recipe": {
+    "palette": "pastel",
+    "fill": "flat",
+    "line": "none",
+    "eyes": "dot",
+    "desat": 0.35,
+    "foreground": false,
+    "fps": 12
+   }
+  },
+  {
+   "n": 99,
+   "slug": "comic-strip",
+   "name": "Comic Strip Animation",
+   "cat": "C",
+   "kind": "format",
+   "look": "Newspaper-strip panels, bold outlines, speech bubbles.",
+   "motion": "Small movements inside panels.",
+   "source": "guide",
+   "recipe": {
+    "palette": "cartoon",
+    "charFill": "cel",
+    "bgFill": "flat",
+    "line": "clean",
+    "lineW": 4,
+    "fps": 12,
+    "overlay": "panels"
+   }
+  },
+  {
+   "n": 100,
+   "slug": "storybook",
+   "name": "Storybook Cartoon",
+   "cat": "C",
+   "kind": "look",
+   "look": "Watercolour and pencil like a picture book, warm pastel colour.",
+   "motion": "Gentle, slow movement.",
+   "source": "guide",
+   "recipe": {
+    "palette": "pastel",
+    "fill": "wash",
+    "line": "sketch",
+    "lineW": 1.8,
+    "lineColor": "#5a4030",
+    "gait": "walk",
+    "speed": 120,
+    "fps": 12,
+    "post": [
+     "paper"
+    ]
+   }
+  },
+  {
+   "n": 101,
+   "slug": "gothic",
+   "name": "Gothic Cartoon",
+   "cat": "C",
+   "kind": "look",
+   "look": "Dark purples and greens, pale skin, spiky silhouettes, moonlit castle.",
+   "motion": "Theatrical, slightly jerky.",
+   "source": "guide",
+   "recipe": {
+    "palette": "gothic",
+    "charFill": "cel",
+    "bgFill": "soft",
+    "line": "ink",
+    "lineW": 3,
+    "gait": "walk",
+    "speed": 140,
+    "fps": 12,
+    "post": [
+     [
+      "vignette",
+      0.7
+     ],
+     [
+      "grain",
+      0.04
+     ]
+    ]
+   }
+  }
+ ]
+}
